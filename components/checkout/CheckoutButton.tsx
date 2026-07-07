@@ -1,14 +1,59 @@
+"use client";
+
+import { useState } from "react";
+
 type CheckoutButtonProps = {
-  onCheckout: () => void;
+  amount: number;
+  bookingReference: string;
+  destination: string;
 };
 
-export default function CheckoutButton({ onCheckout }: CheckoutButtonProps) {
+export default function CheckoutButton({
+  amount,
+  bookingReference,
+  destination,
+}: CheckoutButtonProps) {
+  const [loading, setLoading] = useState(false);
+
+  async function handleCheckout() {
+    try {
+      setLoading(true);
+
+      const response = await fetch("/api/payments/create", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          amount,
+          bookingReference,
+          destination,
+        }),
+      });
+
+      const payment = await response.json();
+
+      if (payment.invoice_url) {
+        window.location.href = payment.invoice_url;
+        return;
+      }
+
+      alert("Unable to create payment.");
+    } catch (error) {
+      console.error(error);
+      alert("Something went wrong.");
+    } finally {
+      setLoading(false);
+    }
+  }
+
   return (
     <button
-      onClick={onCheckout}
-      className="w-full mt-6 bg-[#64D98B] hover:bg-green-500 transition-all duration-300 text-[#081B29] font-bold py-5 rounded-2xl text-xl shadow-lg"
+      onClick={handleCheckout}
+      disabled={loading}
+      className="w-full bg-[#64D98B] hover:bg-[#54c97a] text-[#081B29] font-bold py-4 rounded-2xl transition disabled:opacity-50"
     >
-      Complete Secure Payment →
+      {loading ? "Creating Secure Payment..." : "Complete Secure Payment"}
     </button>
   );
 }

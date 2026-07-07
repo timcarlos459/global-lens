@@ -88,9 +88,9 @@ export default function CheckoutPage() {
             />
 
             <CheckoutButton
-              onCheckout={() => {
-                alert("NOWPayments Integration Coming Soon 🚀");
-              }}
+              amount={booking.amountToPay}
+              bookingReference={booking.bookingReference}
+              destination={booking.destination}
             />
           </div>
         </div>

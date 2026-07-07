@@ -19,31 +19,30 @@ export async function createNowPayment({
     method: "POST",
 
     headers: {
-      "Content-Type": "application/json",
       "x-api-key": API_KEY,
+      "Content-Type": "application/json",
     },
 
     body: JSON.stringify({
       price_amount: amount,
-
       price_currency: PAYMENT.currency,
-
       pay_currency: PAYMENT.payCurrency,
-
       order_id: orderId,
-
       order_description: description,
 
-      success_url: PAYMENT.successUrl,
+      ipn_callback_url: `${process.env.NEXT_PUBLIC_APP_URL}/api/payments/webhook`,
 
-      cancel_url: PAYMENT.cancelUrl,
+      success_url: `${process.env.NEXT_PUBLIC_APP_URL}${PAYMENT.successUrl}`,
+
+      cancel_url: `${process.env.NEXT_PUBLIC_APP_URL}${PAYMENT.cancelUrl}`,
     }),
   });
 
   if (!response.ok) {
     const error = await response.json();
+    console.error(error);
 
-    throw new Error(error.message || "NOWPayments payment failed.");
+    throw new Error(error.message ?? "NOWPayments Error");
   }
 
   return response.json();

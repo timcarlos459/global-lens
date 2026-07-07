@@ -51,7 +51,7 @@ export const BOOKING = {
 
   minimumRooms: 1,
 
-  depositPercentage: 30,
+  depositPercentage: 60,
 
   currency: "USD",
 
@@ -62,11 +62,7 @@ export const BOOKING = {
  * Seasons
  */
 
-export const SEASONS = [
-  "low",
-  "standard",
-  "peak",
-] as const;
+export const SEASONS = ["low", "standard", "peak"] as const;
 
 /**
  * Contact Information
@@ -118,3 +114,22 @@ export const NAVIGATION = [
     href: "/contact",
   },
 ];
+/**
+ * Payment Configuration
+ */
+
+export const PAYMENT = {
+  provider: "NOWPayments",
+
+  currency: "USD",
+
+  payCurrency: "usdttrc20",
+
+  network: "TRON (TRC20)",
+
+  depositPercentage: BOOKING.depositPercentage,
+
+  successUrl: "/payment/success",
+
+  cancelUrl: "/payment/cancel",
+};

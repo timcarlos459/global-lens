@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { createNowPayment } from "@/utils/nowpayments";
+import { createNowInvoice } from "@/utils/nowpayments";
 
 export async function POST(req: Request) {
   try {
@@ -7,7 +7,7 @@ export async function POST(req: Request) {
 
     const { amount, bookingReference, destination } = body;
 
-    const payment = await createNowPayment({
+    const payment = await createNowInvoice({
       amount,
       orderId: bookingReference,
       description: `Global Lens Tour - ${destination}`,

@@ -33,12 +33,12 @@ export default function CheckoutButton({
 
       const payment = await response.json();
 
-      if (payment.invoice_url) {
-        window.location.href = payment.invoice_url;
-        return;
+      if (!response.ok) {
+        throw new Error(payment.error || "Unable to create payment.");
       }
 
-      alert("Unable to create payment.");
+      window.location.href =
+        payment.invoice_url || payment.payment_url || payment.link;
     } catch (error) {
       console.error(error);
       alert("Something went wrong.");

@@ -10,12 +10,12 @@ export interface NowPaymentRequest {
   description: string;
 }
 
-export async function createNowPayment({
+export async function createNowInvoice({
   amount,
   orderId,
   description,
 }: NowPaymentRequest) {
-  const response = await fetch(`${API_BASE}/payment`, {
+  const response = await fetch(`${API_BASE}/invoice`, {
     method: "POST",
 
     headers: {
@@ -25,8 +25,8 @@ export async function createNowPayment({
 
     body: JSON.stringify({
       price_amount: amount,
-      price_currency: PAYMENT.currency,
-      pay_currency: PAYMENT.payCurrency,
+      price_currency: "usd",
+
       order_id: orderId,
       order_description: description,
 
@@ -40,6 +40,7 @@ export async function createNowPayment({
 
   if (!response.ok) {
     const error = await response.json();
+
     console.error(error);
 
     throw new Error(error.message ?? "NOWPayments Error");

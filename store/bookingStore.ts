@@ -1,13 +1,13 @@
 import { create } from "zustand";
-import type { BookingData } from "@/types/booking";
+import { BookingData } from "@/types/booking";
 
-type BookingStore = {
+interface BookingStore {
   booking: BookingData | null;
 
   setBooking: (booking: BookingData) => void;
 
   clearBooking: () => void;
-};
+}
 
 export const useBookingStore = create<BookingStore>((set) => ({
   booking: null,

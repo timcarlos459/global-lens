@@ -17,6 +17,7 @@ export interface BasePrices {
 export interface BookingData {
   bookingReference: string;
 
+  tourSlug: string;
   destination: string;
 
   fullName: string;

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
+import { createBooking } from "@/actions/booking";
 import { useBookingStore } from "@/store/bookingStore";
 import GuestSelector from "./GuestSelector";
 import RoomSelector from "./RoomSelector";
@@ -129,13 +130,52 @@ export default function BookingForm() {
 
   const balance =
     paymentOption === "deposit" ? calculateBalance(subtotal, deposit) : 0;
-  const goToCheckout = () => {
+  const goToCheckout = async () => {
     if (!selectedDestination) return;
+
+    const result = await createBooking({
+      bookingReference,
+
+      destination: selectedDestination.name,
+
+      tourSlug: selectedDestination.slug,
+
+      fullName,
+      email,
+      nationality,
+
+      adults,
+      children: childGuests,
+      infants,
+
+      roomType,
+
+      startDate,
+      endDate,
+
+      season,
+
+      subtotal,
+      deposit,
+      amountToPay,
+
+      paymentOption,
+    });
+
+    console.log(result);
+
+    if (!result.success) {
+      alert(result.error || "Failed to save booking.");
+
+      return;
+    }
 
     setBooking({
       bookingReference,
 
       destination: selectedDestination.name,
+
+      tourSlug: selectedDestination.slug,
 
       fullName,
       email,

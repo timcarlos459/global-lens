@@ -1,129 +1,10 @@
 import Image from "next/image";
+import Link from "next/link";
 import { notFound } from "next/navigation";
-import { MapPin, Globe2 } from "lucide-react";
+import { Globe2, MapPin } from "lucide-react";
 
-const countries = [
-  {
-    name: "Kenya",
-    slug: "kenya",
-    image: "/images/safari/safari1.jpg",
-    description:
-      "Kenya is home to world-famous wildlife safaris, pristine beaches, breathtaking mountains, vibrant cities and unforgettable cultural experiences.",
-    destinations: [
-      "Maasai Mara",
-      "Amboseli",
-      "Tsavo East",
-      "Tsavo West",
-      "Lake Nakuru",
-      "Samburu",
-      "Diani Beach",
-      "Watamu",
-      "Lamu",
-      "Mount Kenya",
-      "Hell's Gate",
-      "Aberdare",
-    ],
-  },
-
-  {
-    name: "Tanzania",
-    slug: "tanzania",
-    image: "/images/beach/beach4.jpg",
-    description:
-      "Discover the endless plains of Serengeti, Mount Kilimanjaro, Zanzibar beaches and spectacular wildlife adventures.",
-    destinations: [
-      "Serengeti",
-      "Ngorongoro",
-      "Zanzibar",
-      "Mount Kilimanjaro",
-      "Tarangire",
-      "Lake Manyara",
-      "Ruaha",
-      "Mikumi",
-      "Arusha",
-      "Mafia Island",
-      "Pemba Island",
-      "Selous",
-    ],
-  },
-
-  {
-    name: "Uganda",
-    slug: "uganda",
-    image: "/images/gorilla/gorilla4.jpg",
-    description:
-      "Experience mountain gorillas, lush rainforests, waterfalls and the incredible Pearl of Africa.",
-    destinations: [
-      "Bwindi",
-      "Queen Elizabeth",
-      "Murchison Falls",
-      "Kibale Forest",
-      "Lake Bunyonyi",
-      "Mgahinga",
-      "Jinja",
-      "Rwenzori",
-      "Kidepo",
-      "Entebbe",
-    ],
-  },
-
-  {
-    name: "Rwanda",
-    slug: "rwanda",
-    image: "/images/culture/culture4.jpg",
-    description:
-      "Explore Rwanda's clean cities, mountain gorillas, volcanoes and breathtaking landscapes.",
-    destinations: [
-      "Volcanoes NP",
-      "Kigali",
-      "Lake Kivu",
-      "Nyungwe Forest",
-      "Akagera",
-      "Musanze",
-      "King's Palace",
-    ],
-  },
-
-  {
-    name: "South Africa",
-    slug: "south-africa",
-    image: "/images/mountain/mountain4.jpg",
-    description:
-      "Experience Cape Town, Kruger National Park, Garden Route and world-class wine regions.",
-    destinations: [
-      "Cape Town",
-      "Kruger",
-      "Table Mountain",
-      "Garden Route",
-      "Johannesburg",
-      "Durban",
-      "Stellenbosch",
-      "Robben Island",
-      "Hermanus",
-      "Blyde River Canyon",
-    ],
-  },
-
-  {
-    name: "Mauritius",
-    slug: "mauritius",
-    image: "/images/island/island3.jpg",
-    description:
-      "Luxury island escapes with crystal-clear lagoons, coral reefs and tropical beaches.",
-    destinations: [
-      "Grand Baie",
-      "Le Morne",
-      "Flic en Flac",
-      "Chamarel",
-      "Black River",
-      "Belle Mare",
-      "Blue Bay",
-      "Trou aux Biches",
-      "Port Louis",
-      "Île aux Cerfs",
-    ],
-  },
-];
+import { countries } from "@/data/countries";
+import { destinations } from "@/data/destinations";
 
 type Props = {
   params: Promise<{
@@ -136,15 +17,19 @@ export default async function CountryPage({ params }: Props) {
 
   const country = countries.find((item) => item.slug === slug);
 
-  if (!country) {
+  const countryTours = destinations.filter(
+    (tour) => tour.country.toLowerCase().replace(/\s+/g, "-") === slug,
+  );
+
+  if (!country || countryTours.length === 0) {
     notFound();
   }
 
   return (
     <main className="bg-white">
+      {/* Hero */}
 
-      <section className="relative h-[70vh]">
-
+      <section className="relative h-175">
         <Image
           src={country.image}
           alt={country.name}
@@ -153,63 +38,69 @@ export default async function CountryPage({ params }: Props) {
           className="object-cover"
         />
 
-        <div className="absolute inset-0 bg-black/60 flex items-center">
+        <div className="absolute inset-0 flex items-center bg-black/60">
+          <div className="mx-auto max-w-7xl px-8 text-white">
+            <h1 className="text-6xl font-black">{country.name}</h1>
 
-          <div className="max-w-7xl mx-auto px-8 text-white">
-
-            <h1 className="text-6xl font-black">
-              {country.name}
-            </h1>
-
-            <p className="mt-6 text-xl max-w-3xl">
-              {country.description}
-            </p>
-
+            <p className="mt-6 max-w-3xl text-xl">{country.description}</p>
           </div>
-
         </div>
-
       </section>
 
-      <section className="max-w-7xl mx-auto px-8 py-20">
+      {/* Destinations */}
 
-        <div className="flex items-center gap-3 mb-10">
-
+      <section className="mx-auto max-w-7xl px-8 py-20">
+        <div className="mb-10 flex items-center gap-3">
           <Globe2 className="text-[#64D98B]" />
 
-          <h2 className="text-4xl font-black">
-            Top Destinations
-          </h2>
-
+          <h2 className="text-4xl font-black">Top Destinations</h2>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-          {country.destinations.map((place) => (
-
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {countryTours.map((tour) => (
             <div
-              key={place}
-              className="rounded-2xl shadow-lg p-6 hover:shadow-xl transition bg-[#F8FBFC]"
+              key={tour.slug}
+              className="overflow-hidden rounded-3xl bg-white shadow-lg transition duration-300 hover:shadow-2xl"
             >
-
-              <div className="flex items-center gap-3">
-
-                <MapPin className="text-[#64D98B]" />
-
-                <h3 className="text-xl font-bold">
-                  {place}
-                </h3>
-
+              <div className="relative h-60">
+                <Image
+                  src={tour.image}
+                  alt={tour.name}
+                  fill
+                  className="object-cover"
+                />
               </div>
 
+              <div className="p-6">
+                <div className="mb-3 flex items-center gap-2 text-[#64D98B]">
+                  <MapPin size={18} />
+
+                  <span>{tour.location}</span>
+                </div>
+
+                <h3 className="text-2xl font-bold text-[#081B29]">
+                  {tour.name}
+                </h3>
+
+                <p className="mt-3 line-clamp-3 text-gray-600">
+                  {tour.overview}
+                </p>
+
+                <div className="mt-6 flex items-center justify-between">
+                  <span className="font-semibold">{tour.duration}</span>
+
+                  <Link
+                    href={`/tours/${tour.slug}`}
+                    className="rounded-xl bg-[#64D98B] px-5 py-2 font-semibold text-[#081B29] transition hover:bg-[#53c67b]"
+                  >
+                    View Tour
+                  </Link>
+                </div>
+              </div>
             </div>
-
           ))}
-
         </div>
-
       </section>
-
     </main>
   );
 }

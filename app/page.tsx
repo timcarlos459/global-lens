@@ -1,6 +1,5 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import Destinations from "@/components/Destinations";
 import FeaturedTours from "@/components/FeaturedTours";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import Testimonials from "@/components/Testimonials";
@@ -16,8 +15,6 @@ export default function Home() {
       <Navbar />
 
       <Hero />
-
-      <Destinations />
 
       <FeaturedTours />
 

@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { Destination } from "@/data/destinations";
+import type { Destination } from "@/data/destinations/types";
 
 interface BookingCardProps {
   destination: Destination;
@@ -11,9 +11,8 @@ export default function BookingCard({ destination }: BookingCardProps) {
   const router = useRouter();
 
   const startingPrice =
-    destination.roomOccupancy.find((g) => g.guests === 2)?.standard.standard ??
+    destination.roomOccupancy.find((room) => room.guests === 1)?.standard.low ??
     0;
-
   return (
     <div className="bg-white rounded-3xl shadow-2xl border border-gray-100 p-8 sticky top-28">
       <h2 className="text-3xl font-black text-[#081B29]">Book This Tour</h2>

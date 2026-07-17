@@ -1,4 +1,4 @@
-import { Destination } from "../destinations/types";
+import { Destination } from "./types";
 
 export const southAfrica: Destination[] = [
   {
@@ -11,6 +11,8 @@ export const southAfrica: Destination[] = [
     country: "South Africa",
 
     category: "Safari",
+
+    tourType: "Wildlife",
 
     image: "/images/safari/kruger1.jpg",
 
@@ -279,6 +281,8 @@ export const southAfrica: Destination[] = [
 
     category: "Safari",
 
+    tourType: "Wildlife",
+
     image: "/images/safari/addo1.jpg",
 
     gallery: [
@@ -538,6 +542,8 @@ export const southAfrica: Destination[] = [
     country: "South Africa",
 
     category: "City",
+
+    tourType: "Private",
 
     image: "/images/city/capetown1.jpg",
 
@@ -799,6 +805,8 @@ export const southAfrica: Destination[] = [
 
     category: "Mountain",
 
+    tourType: "Adventure",
+
     image: "/images/mountain/tablemountain1.jpg",
 
     gallery: [
@@ -1051,6 +1059,8 @@ export const southAfrica: Destination[] = [
     country: "South Africa",
 
     category: "Mountain",
+
+    tourType: "Adventure",
 
     image: "/images/mountain/drakensberg1.jpg",
 
@@ -1319,6 +1329,8 @@ export const southAfrica: Destination[] = [
 
     category: "Beach",
 
+    tourType: "Luxury",
+
     image: "/images/beach/boulders1.jpg",
 
     gallery: [
@@ -1571,6 +1583,8 @@ export const southAfrica: Destination[] = [
     country: "South Africa",
 
     category: "Beach",
+
+    tourType: "Honeymoon",
 
     image: "/images/beach/durban1.jpg",
 
@@ -1831,6 +1845,8 @@ export const southAfrica: Destination[] = [
     country: "South Africa",
 
     category: "City",
+
+    tourType: "Family",
 
     image: "/images/city/capetown1.jpg",
 

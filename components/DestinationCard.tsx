@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Clock3, MapPin, Star } from "lucide-react";
-import { Destination } from "@/data/destinations";
+import type { Destination } from "@/data/destinations/types";
 
 type Props = {
   destination: Destination;

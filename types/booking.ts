@@ -2,17 +2,7 @@ export type Season = "low" | "standard" | "peak";
 
 export type PaymentOption = "deposit" | "full";
 
-export interface SeasonalPrice {
-  low: number;
-  standard: number;
-  peak: number;
-}
-
-export interface BasePrices {
-  standard: SeasonalPrice;
-  deluxe: SeasonalPrice;
-  luxury: SeasonalPrice;
-}
+export type RoomType = "Standard Room" | "Deluxe Room" | "Luxury Suite";
 
 export interface BookingData {
   bookingReference: string;
@@ -28,7 +18,7 @@ export interface BookingData {
   children: number;
   infants: number;
 
-  roomType: string;
+  roomType: RoomType;
 
   startDate: string;
   endDate: string;

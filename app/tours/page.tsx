@@ -1,3 +1,7 @@
+"use client";
+
+import { useState } from "react";
+
 import Hero from "@/components/tours/Hero";
 import SearchBar from "@/components/tours/SearchBar";
 import CategoryTabs from "@/components/tours/CategoryTabs";
@@ -5,6 +9,8 @@ import Filters from "@/components/tours/Filters";
 import TourGrid from "@/components/tours/TourGrid";
 
 export default function ToursPage() {
+  const [activeCategory, setActiveCategory] = useState("All");
+
   return (
     <main className="bg-[#F8F9FA] min-h-screen">
       <Hero />
@@ -29,11 +35,11 @@ export default function ToursPage() {
         <div className="space-y-10">
           <SearchBar />
 
-          <CategoryTabs />
+          <CategoryTabs active={activeCategory} onChange={setActiveCategory} />
 
           <Filters />
 
-          <TourGrid />
+          <TourGrid selectedCategory={activeCategory} />
         </div>
       </section>
     </main>

@@ -1,11 +1,15 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowRight, MapPin } from "lucide-react";
 
 interface Props {
   title: string;
   image: string;
   description: string;
   location: string;
+  href?: string;
 }
 
 export default function ExperienceCard({
@@ -13,32 +17,58 @@ export default function ExperienceCard({
   image,
   description,
   location,
+  href = "/contact",
 }: Props) {
   return (
-    <div className="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-500">
-      <div className="relative h-72 overflow-hidden">
+    <Link
+      href={href}
+      className="group block overflow-hidden rounded-4xl bg-white shadow-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
+    >
+      {/* Image */}
+
+      <div className="relative h-80 overflow-hidden">
         <Image
           src={image}
           alt={title}
           fill
-          className="object-cover hover:scale-110 transition duration-700"
+          className="object-cover transition duration-700 group-hover:scale-110"
         />
+
+        {/* Overlay */}
+
+        <div className="absolute inset-0 bg-linear-to-t from-[#081B29]/90 via-black/20 to-transparent" />
+
+        {/* Location */}
+
+        <div className="absolute left-6 top-6 flex items-center gap-2 rounded-full bg-white/90 px-4 py-2 text-sm font-semibold text-[#081B29] backdrop-blur-xl">
+          <MapPin size={16} className="text-[#64D98B]" />
+          {location}
+        </div>
+
+        {/* Title */}
+
+        <div className="absolute bottom-8 left-8 right-8">
+          <h2 className="text-3xl font-black text-white transition group-hover:text-[#64D98B]">
+            {title}
+          </h2>
+        </div>
       </div>
 
-      <div className="p-8">
-        <span className="text-sm font-semibold text-[#64D98B]">{location}</span>
+      {/* Content */}
 
-        <h3 className="mt-3 text-2xl font-black text-[#081B29]">{title}</h3>
+      <div className="space-y-8 p-8">
+        <p className="leading-8 text-gray-600">{description}</p>
 
-        <p className="mt-4 text-gray-600 leading-8">{description}</p>
+        <div className="flex items-center justify-between">
+          <span className="font-bold text-[#081B29] transition group-hover:text-[#64D98B]">
+            Explore Experience
+          </span>
 
-        <Link
-          href="/contact"
-          className="inline-block mt-8 bg-[#081B29] hover:bg-[#102B42] text-white px-6 py-3 rounded-xl font-semibold transition"
-        >
-          Enquire Now
-        </Link>
+          <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#64D98B] text-[#081B29] transition duration-500 group-hover:rotate-45">
+            <ArrowRight size={20} />
+          </div>
+        </div>
       </div>
-    </div>
+    </Link>
   );
 }

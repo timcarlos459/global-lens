@@ -1,27 +1,29 @@
 "use client";
 
-import { useState } from "react";
+interface Props {
+  active: string;
+  onChange: (category: string) => void;
+}
 
 const categories = [
   "All",
-  "Safari",
-  "Beach",
-  "Mountain",
-  "Island",
-  "Culture",
-  "Gorilla Trekking",
+  "Luxury",
+  "Family",
+  "Adventure",
+  "Honeymoon",
+  "Wildlife",
+  "Private",
+  "Photography",
 ];
 
-export default function CategoryTabs() {
-  const [active, setActive] = useState("All");
-
+export default function CategoryTabs({ active, onChange }: Props) {
   return (
     <section>
       <div className="flex flex-wrap gap-4">
         {categories.map((category) => (
           <button
             key={category}
-            onClick={() => setActive(category)}
+            onClick={() => onChange(category)}
             className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
               active === category
                 ? "bg-[#64D98B] text-[#081B29] shadow-lg"

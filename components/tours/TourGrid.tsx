@@ -6,13 +6,22 @@ import { MapPin, Clock, Star } from "lucide-react";
 
 import { destinations } from "@/data/destinations";
 
-export default function TourGrid() {
+interface TourGridProps {
+  selectedCategory: string;
+}
+
+export default function TourGrid({ selectedCategory }: TourGridProps) {
+  const filteredTours =
+    selectedCategory === "All"
+      ? destinations
+      : destinations.filter((tour) => tour.tourType === selectedCategory);
+
   return (
     <section>
       <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
-        {destinations.map((tour) => (
+        {filteredTours.map((tour) => (
           <Link
-            key={tour.id}
+            key={tour.slug}
             href={`/tours/${tour.slug}`}
             className="group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500"
           >
@@ -27,7 +36,7 @@ export default function TourGrid() {
               />
 
               <div className="absolute top-5 left-5 bg-[#64D98B] text-[#081B29] px-4 py-2 rounded-full font-bold">
-                {tour.category}
+                {tour.tourType}
               </div>
 
               <div className="absolute top-5 right-5 bg-white/90 backdrop-blur px-3 py-2 rounded-full flex items-center gap-2">

@@ -1,15 +1,18 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 
+import { RoomType } from "@/types/booking";
 import { createBooking } from "@/actions/booking";
 import { useBookingStore } from "@/store/bookingStore";
 import GuestSelector from "./GuestSelector";
 import RoomSelector from "./RoomSelector";
 import CustomerForm from "./CustomerForm";
 import BookingSidebar from "./BookingSidebar";
+
 import {
+  calculateAdultPrice,
   calculateChildPrice,
   calculateAdultsTotal,
   calculateChildrenTotal,
@@ -19,21 +22,19 @@ import {
 } from "@/helpers/pricing";
 import { generateBookingReference } from "@/utils/reference";
 
-import { destinations } from "@/data/destinations";
-export default function BookingForm() {
-  const searchParams = useSearchParams();
+import { Destination } from "@/data/destinations/types";
 
+interface BookingFormProps {
+  destination: Destination;
+}
+
+export default function BookingForm({ destination }: BookingFormProps) {
+  const selectedDestination = destination;
   const router = useRouter();
 
   const bookingReference = generateBookingReference();
 
   const { setBooking } = useBookingStore();
-
-  const tourSlug = searchParams.get("tour");
-
-  const selectedDestination = destinations.find(
-    (tour) => tour.slug === tourSlug,
-  );
 
   // ==========================
   // Guest Information
@@ -47,7 +48,7 @@ export default function BookingForm() {
   // Room Selection
   // ==========================
 
-  const [roomType, setRoomType] = useState("Standard Room");
+  const [roomType, setRoomType] = useState<RoomType>("Standard Room");
 
   // ==========================
   // Travel Dates
@@ -93,24 +94,15 @@ export default function BookingForm() {
   // (Based on Room Type + Guest Occupancy)
   // ==========================
 
-  let adultPrice = 0;
-
-  if (occupancy) {
-    switch (roomType) {
-      case "Luxury Suite":
-        adultPrice = occupancy.luxury[season];
-        break;
-
-      case "Deluxe Room":
-        adultPrice = occupancy.deluxe[season];
-        break;
-
-      case "Standard Room":
-      default:
-        adultPrice = occupancy.standard[season];
-        break;
-    }
-  }
+  const adultPrice =
+    occupancy && pricingGuests >= 1 && pricingGuests <= 6
+      ? calculateAdultPrice(
+          selectedDestination.roomOccupancy,
+          pricingGuests,
+          roomType,
+          season,
+        )
+      : 0;
 
   const childPrice = calculateChildPrice(adultPrice);
 

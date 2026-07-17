@@ -12,6 +12,8 @@ export const uganda: Destination[] = [
 
     category: "Gorilla Trekking",
 
+    tourType: "Adventure",
+
     image: "/images/gorilla/bwindi1.jpg",
 
     gallery: [
@@ -271,6 +273,8 @@ export const uganda: Destination[] = [
     country: "Uganda",
 
     category: "Safari",
+
+    tourType: "Wildlife",
 
     image: "/images/safari/queenelizabeth1.jpg",
 
@@ -540,6 +544,8 @@ export const uganda: Destination[] = [
 
     category: "Safari",
 
+    tourType: "Wildlife",
+
     image: "/images/safari/murchison1.jpg",
 
     gallery: [
@@ -808,6 +814,8 @@ export const uganda: Destination[] = [
 
     category: "Gorilla Trekking",
 
+    tourType: "Adventure",
+
     image: "/images/gorilla/mgahinga1.jpg",
 
     gallery: [
@@ -1068,6 +1076,8 @@ export const uganda: Destination[] = [
     country: "Uganda",
 
     category: "Adventure",
+
+    tourType: "Adventure",
 
     image: "/images/adventure/jinja1.jpg",
 
@@ -1330,6 +1340,8 @@ export const uganda: Destination[] = [
     country: "Uganda",
 
     category: "Mountain",
+
+    tourType: "Adventure",
 
     image: "/images/mountain/rwenzori1.jpg",
 
@@ -1600,6 +1612,8 @@ export const uganda: Destination[] = [
 
     category: "Safari",
 
+    tourType: "Wildlife",
+
     image: "/images/safari/kidepo1.jpg",
 
     gallery: [
@@ -1867,6 +1881,8 @@ export const uganda: Destination[] = [
     country: "Uganda",
 
     category: "Culture",
+
+    tourType: "Private",
 
     image: "/images/culture/entebbe1.jpg",
 

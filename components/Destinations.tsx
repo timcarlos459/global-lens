@@ -36,7 +36,7 @@ const experiences = [
     title: "Island Escapes",
     image: "/images/island/island1.jpg",
     count: "10+ Destinations",
-    description: "Mauritius • Zanzibar • Seychelles",
+    description: "Zanzibar • Seychelles",
     href: "/destinations/seychelles",
   },
   {
@@ -96,9 +96,7 @@ export default function Destinations() {
                 </p>
 
                 <div className="mt-8 flex justify-between items-center">
-                  <span className="font-semibold text-[#081B29]">
-                    Explore
-                  </span>
+                  <span className="font-semibold text-[#081B29]">Explore</span>
 
                   <span className="text-[#64D98B] text-2xl group-hover:translate-x-2 transition">
                     →

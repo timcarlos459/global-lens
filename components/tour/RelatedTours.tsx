@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { destinations } from "@/data/destinations";
+import type { Destination } from "@/data/destinations/types";
 
 interface Props {
   currentSlug: string;
@@ -11,7 +12,7 @@ interface Props {
 
 export default function RelatedTours({ currentSlug }: Props) {
   const related = destinations
-    .filter((tour) => tour.slug !== currentSlug)
+    .filter((tour: Destination) => tour.slug !== currentSlug)
     .slice(0, 3);
 
   return (
@@ -21,9 +22,9 @@ export default function RelatedTours({ currentSlug }: Props) {
       </h2>
 
       <div className="grid md:grid-cols-3 gap-8">
-        {related.map((tour) => (
+        {related.map((tour: Destination) => (
           <Link
-            key={tour.id}
+            key={tour.slug}
             href={`/tours/${tour.slug}`}
             className="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition"
           >

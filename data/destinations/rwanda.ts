@@ -12,6 +12,8 @@ export const rwanda: Destination[] = [
 
     category: "Gorilla Trekking",
 
+    tourType: "Adventure",
+
     image: "/images/gorilla/volcanoes1.jpg",
 
     gallery: [
@@ -272,6 +274,8 @@ export const rwanda: Destination[] = [
 
     category: "City",
 
+    tourType: "Private",
+
     image: "/images/city/kigali1.jpg",
 
     gallery: [
@@ -524,6 +528,8 @@ export const rwanda: Destination[] = [
     country: "Rwanda",
 
     category: "Lake",
+
+    tourType: "Family",
 
     image: "/images/lake/lakekivu1.jpg",
 
@@ -785,6 +791,8 @@ export const rwanda: Destination[] = [
 
     category: "Forest",
 
+    tourType: "Adventure",
+
     image: "/images/forest/nyungwe1.jpg",
 
     gallery: [
@@ -1044,6 +1052,8 @@ export const rwanda: Destination[] = [
     country: "Rwanda",
 
     category: "Safari",
+
+    tourType: "Wildlife",
 
     image: "/images/safari/akagera1.jpg",
 
@@ -1305,6 +1315,8 @@ export const rwanda: Destination[] = [
 
     category: "Mountain",
 
+    tourType: "Adventure",
+
     image: "/images/mountain/musanze1.jpg",
 
     gallery: [
@@ -1565,6 +1577,8 @@ export const rwanda: Destination[] = [
 
     category: "Culture",
 
+    tourType: "Family",
+
     image: "/images/culture/kingspalace1.jpg",
 
     gallery: [
@@ -1817,6 +1831,8 @@ export const rwanda: Destination[] = [
     country: "Rwanda",
 
     category: "Museum",
+
+    tourType: "Photography",
 
     image: "/images/museum/memorial1.jpg",
 

@@ -15,6 +15,8 @@ export const kenya: Destination[] = [
 
     category: "Safari",
 
+    tourType: "Wildlife",
+
     image: "/images/safari/safari1.jpg",
 
     gallery: [
@@ -281,6 +283,9 @@ export const kenya: Destination[] = [
     country: "Kenya",
 
     category: "Beach",
+
+    tourType: "Luxury",
+
     image: "/images/beach/beach1.jpg",
 
     gallery: [
@@ -529,6 +534,8 @@ export const kenya: Destination[] = [
     country: "Kenya",
 
     category: "Safari",
+
+    tourType: "Wildlife",
 
     image: "/images/safari/amboseli1.jpg",
 
@@ -791,6 +798,8 @@ export const kenya: Destination[] = [
 
     category: "Safari",
 
+    tourType: "Wildlife",
+
     image: "/images/safari/tsavoeast1.jpg",
 
     gallery: [
@@ -1051,6 +1060,8 @@ export const kenya: Destination[] = [
     country: "Kenya",
 
     category: "Safari",
+
+    tourType: "Wildlife",
 
     image: "/images/safari/tsavowest1.jpg",
 
@@ -1313,6 +1324,8 @@ export const kenya: Destination[] = [
 
     category: "Safari",
 
+    tourType: "Wildlife",
+
     image: "/images/safari/nakuru1.jpg",
 
     gallery: [
@@ -1471,6 +1484,8 @@ export const kenya: Destination[] = [
 
     category: "Safari",
 
+    tourType: "Photography",
+
     image: "/images/safari/samburu1.jpg",
 
     gallery: [
@@ -1628,6 +1643,8 @@ export const kenya: Destination[] = [
     country: "Kenya",
 
     category: "Beach",
+
+    tourType: "Luxury",
 
     image: "/images/beach/watamu1.jpg",
 
@@ -1790,6 +1807,8 @@ export const kenya: Destination[] = [
     name: "Lamu Island Experience",
 
     country: "Kenya",
+
+    tourType: "Honeymoon",
 
     category: "Island",
 
@@ -1956,6 +1975,8 @@ export const kenya: Destination[] = [
     country: "Kenya",
 
     category: "Mountain",
+
+    tourType: "Adventure",
 
     image: "/images/mountain/mtkenya1.jpg",
 
@@ -2224,6 +2245,8 @@ export const kenya: Destination[] = [
 
     category: "Adventure",
 
+    tourType: "Adventure",
+
     image: "/images/adventure/hellsgate1.jpg",
 
     gallery: [
@@ -2378,6 +2401,8 @@ export const kenya: Destination[] = [
     country: "Kenya",
 
     category: "Safari",
+
+    tourType: "Wildlife",
 
     image: "/images/safari/aberdare1.jpg",
 

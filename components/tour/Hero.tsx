@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Destination } from "@/data/destinations";
+import { Destination } from "@/data/destinations/types";
 
 interface HeroProps {
   destination: Destination;

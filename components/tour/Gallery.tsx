@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { Destination } from "@/data/destinations";
+import { Destination } from "@/data/destinations/types";
 
 interface GalleryProps {
   destination: Destination;

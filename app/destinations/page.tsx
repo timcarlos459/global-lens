@@ -34,11 +34,9 @@ export default function DestinationsPage() {
 
   return (
     <main className="bg-[#F8FBFC]">
-
       {/* Hero */}
 
       <section className="relative h-[60vh]">
-
         <Image
           src="/images/hero/hero3.jpg"
           alt="Destinations"
@@ -47,31 +45,23 @@ export default function DestinationsPage() {
         />
 
         <div className="absolute inset-0 bg-black/60 flex items-center justify-center">
-
           <div className="text-center text-white">
-
             <p className="uppercase tracking-[6px] text-[#64D98B] font-semibold">
               Discover Africa
             </p>
 
-            <h1 className="text-6xl font-black mt-5">
-              Explore Destinations
-            </h1>
+            <h1 className="text-6xl font-black mt-5">Explore Destinations</h1>
 
             <p className="mt-6 text-lg max-w-2xl mx-auto">
               Find your next unforgettable adventure across Africa.
             </p>
-
           </div>
-
         </div>
-
       </section>
 
       {/* Search */}
 
       <section className="max-w-7xl mx-auto px-6 py-16">
-
         <input
           type="text"
           placeholder="Search destinations or countries..."
@@ -79,15 +69,12 @@ export default function DestinationsPage() {
           onChange={(e) => setSearch(e.target.value)}
           className="w-full rounded-full border border-gray-300 px-6 py-4 text-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-[#64D98B]"
         />
-
       </section>
 
       {/* Categories */}
 
       <section className="max-w-7xl mx-auto px-6">
-
         <div className="flex flex-wrap justify-center gap-4">
-
           {categories.map((item) => (
             <button
               key={item}
@@ -101,29 +88,20 @@ export default function DestinationsPage() {
               {item}
             </button>
           ))}
-
         </div>
-
       </section>
 
       {/* Cards */}
 
       <section className="max-w-7xl mx-auto px-6 py-20">
-
         <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-10">
-
           {filteredDestinations.map((destination) => (
-            <DestinationCard
-              key={destination.id}
-              destination={destination}
-            />
+            <DestinationCard key={destination.id} destination={destination} />
           ))}
-
         </div>
 
         {filteredDestinations.length === 0 && (
           <div className="text-center py-20">
-
             <h2 className="text-3xl font-bold text-gray-600">
               No destinations found.
             </h2>
@@ -131,12 +109,9 @@ export default function DestinationsPage() {
             <p className="mt-4 text-gray-500">
               Try another search or category.
             </p>
-
           </div>
         )}
-
       </section>
-
     </main>
   );
 }

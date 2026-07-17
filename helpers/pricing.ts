@@ -1,51 +1,41 @@
-import { BasePrices, RoomOccupancy, Season } from "@/types/booking";
+import { RoomOccupancy } from "@/data/destinations/types";
+import { RoomType, Season } from "@/types/booking";
 
 /**
- * Calculate the adult price depending on:
- * - Room selected
- * - Season
- * - Number of guests (multiplier)
+ * Price per adult.
  */
 export function calculateAdultPrice(
-  basePrices: BasePrices,
-  occupancy: RoomOccupancy,
-  roomType: string,
+  roomOccupancy: RoomOccupancy[],
+  guests: number,
+  roomType: RoomType,
   season: Season,
 ): number {
-  if (!occupancy || occupancy.multiplier === 0) {
-    return 0;
-  }
+  const occupancy = roomOccupancy.find((item) => item.guests === guests);
 
-  let basePrice = 0;
+  if (!occupancy) {
+    throw new Error(`No pricing found for ${guests} guests.`);
+  }
 
   switch (roomType) {
     case "Luxury Suite":
-      basePrice = basePrices.luxury[season];
-      break;
+      return occupancy.luxury[season];
 
     case "Deluxe Room":
-      basePrice = basePrices.deluxe[season];
-      break;
+      return occupancy.deluxe[season];
 
     case "Standard Room":
     default:
-      basePrice = basePrices.standard[season];
-      break;
+      return occupancy.standard[season];
   }
-
-  return Math.round(basePrice * occupancy.multiplier);
 }
 
 /**
- * Children pay 70% of the adult price.
+ * Child pays 70%.
  */
 export function calculateChildPrice(adultPrice: number): number {
   return Math.round(adultPrice * 0.7);
 }
 
-/**
- * Adults total.
- */
 export function calculateAdultsTotal(
   adults: number,
   adultPrice: number,
@@ -53,9 +43,6 @@ export function calculateAdultsTotal(
   return adults * adultPrice;
 }
 
-/**
- * Children total.
- */
 export function calculateChildrenTotal(
   children: number,
   childPrice: number,
@@ -63,9 +50,6 @@ export function calculateChildrenTotal(
   return children * childPrice;
 }
 
-/**
- * Grand total.
- */
 export function calculateSubtotal(
   adultsTotal: number,
   childrenTotal: number,
@@ -73,16 +57,10 @@ export function calculateSubtotal(
   return adultsTotal + childrenTotal;
 }
 
-/**
- * 60% Deposit.
- */
 export function calculateDeposit(subtotal: number): number {
   return Math.round(subtotal * 0.6);
 }
 
-/**
- * Remaining balance.
- */
 export function calculateBalance(subtotal: number, deposit: number): number {
   return subtotal - deposit;
 }

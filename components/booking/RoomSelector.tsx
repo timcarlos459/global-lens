@@ -1,11 +1,17 @@
 "use client";
 
+import { Dispatch, SetStateAction } from "react";
+import { RoomType } from "@/types/booking";
+
 type RoomSelectorProps = {
-  roomType: string;
-  setRoomType: (value: string) => void;
+  roomType: RoomType;
+  setRoomType: Dispatch<SetStateAction<RoomType>>;
 };
 
-const rooms = [
+const rooms: {
+  name: RoomType;
+  description: string;
+}[] = [
   {
     name: "Standard Room",
     description: "Comfortable room with all standard amenities.",

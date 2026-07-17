@@ -1,4 +1,4 @@
-import { Destination } from "@/data/destinations";
+import { Destination } from "@/data/destinations/types";
 
 interface Props {
   destination: Destination;

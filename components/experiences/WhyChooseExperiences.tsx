@@ -1,54 +1,95 @@
+"use client";
+
+import { Crown, MapPinned, CalendarCheck, ShieldCheck } from "lucide-react";
+
+const features = [
+  {
+    icon: Crown,
+    title: "Luxury Planning",
+    text: "Every itinerary is thoughtfully designed with premium accommodations, exclusive experiences and exceptional attention to detail.",
+  },
+  {
+    icon: MapPinned,
+    title: "Local Experts",
+    text: "Travel with experienced local guides who know every hidden gem, wildlife trail and authentic cultural experience.",
+  },
+  {
+    icon: CalendarCheck,
+    title: "Flexible Booking",
+    text: "Enjoy tailor-made journeys that can be personalized around your travel style, dates and budget.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "24/7 Support",
+    text: "From the moment you book until you return home, our travel specialists are always available to assist you.",
+  },
+];
+
 export default function WhyChooseExperiences() {
-  const features = [
-    {
-      title: "Luxury Planning",
-      text: "Every experience is carefully curated for comfort and exclusivity.",
-    },
-    {
-      title: "Local Experts",
-      text: "Professional guides with extensive local knowledge and experience.",
-    },
-    {
-      title: "Flexible Booking",
-      text: "Personalized itineraries tailored to your travel preferences.",
-    },
-    {
-      title: "24/7 Support",
-      text: "Dedicated assistance before, during and after your journey.",
-    },
-  ];
-
   return (
-    <section className="py-24">
-      <div className="text-center max-w-3xl mx-auto">
-        <span className="text-[#64D98B] font-bold uppercase tracking-wider">
-          Why Choose Global Lens
-        </span>
+    <section className="py-28">
+      <div className="mx-auto max-w-7xl px-6">
+        {/* Heading */}
 
-        <h2 className="mt-5 text-5xl font-black text-[#081B29]">
-          Exceptional Experiences,
-          <br />
-          Designed Around You
-        </h2>
-      </div>
+        <div className="mx-auto max-w-3xl text-center">
+          <span className="inline-flex rounded-full bg-[#64D98B]/15 px-5 py-2 text-sm font-semibold text-[#64D98B]">
+            Why Choose Global Lens Tours
+          </span>
 
-      <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-8 mt-20">
-        {features.map((feature) => (
-          <div
-            key={feature.title}
-            className="bg-white rounded-3xl shadow-lg p-8 text-center"
-          >
-            <div className="w-16 h-16 mx-auto rounded-full bg-[#64D98B]/20 flex items-center justify-center text-3xl">
-              ⭐
-            </div>
+          <h2 className="mt-6 text-5xl font-black leading-tight text-[#081B29] md:text-6xl">
+            Exceptional Experiences,
+            <br />
+            Designed Around You
+          </h2>
 
-            <h3 className="mt-6 text-2xl font-bold text-[#081B29]">
-              {feature.title}
-            </h3>
+          <p className="mt-6 text-lg leading-8 text-gray-600">
+            Every journey is crafted with passion, local expertise and luxury
+            service to ensure unforgettable memories across Africa most
+            spectacular destinations.
+          </p>
+        </div>
 
-            <p className="mt-4 text-gray-600 leading-8">{feature.text}</p>
-          </div>
-        ))}
+        {/* Cards */}
+
+        <div className="mt-20 grid gap-8 md:grid-cols-2 xl:grid-cols-4">
+          {features.map((feature) => {
+            const Icon = feature.icon;
+
+            return (
+              <div
+                key={feature.title}
+                className="group relative overflow-hidden rounded-[30px] border border-gray-100 bg-white p-8 shadow-md transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl"
+              >
+                {/* Background Accent */}
+
+                <div className="absolute right-0 top-0 h-32 w-32 rounded-full bg-[#64D98B]/10 blur-3xl transition duration-500 group-hover:scale-150" />
+
+                {/* Icon */}
+
+                <div className="relative flex h-20 w-20 items-center justify-center rounded-3xl bg-[#64D98B]/15 transition duration-500 group-hover:bg-[#64D98B]">
+                  <Icon
+                    size={36}
+                    className="text-[#64D98B] transition duration-500 group-hover:text-white"
+                  />
+                </div>
+
+                {/* Content */}
+
+                <h3 className="relative mt-8 text-2xl font-black text-[#081B29]">
+                  {feature.title}
+                </h3>
+
+                <p className="relative mt-5 leading-8 text-gray-600">
+                  {feature.text}
+                </p>
+
+                {/* Bottom Accent */}
+
+                <div className="mt-8 h-1 w-16 rounded-full bg-[#64D98B] transition-all duration-500 group-hover:w-full" />
+              </div>
+            );
+          })}
+        </div>
       </div>
     </section>
   );

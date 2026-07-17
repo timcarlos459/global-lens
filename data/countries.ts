@@ -1,49 +1,63 @@
-export const countries = [
+export interface Country {
+  name: string;
+  slug: string;
+  image: string;
+  description: string;
+}
+
+export const countries: Country[] = [
   {
     name: "Kenya",
     slug: "kenya",
     image: "/images/safari/safari1.jpg",
-    description:
-      "Kenya is home to world-famous wildlife safaris, pristine beaches, breathtaking mountains, vibrant cities and unforgettable cultural experiences.",
+    description: "Luxury safaris, beaches and mountains.",
   },
-
   {
     name: "Tanzania",
     slug: "tanzania",
     image: "/images/beach/beach4.jpg",
-    description:
-      "Discover the endless plains of Serengeti, Mount Kilimanjaro, Zanzibar beaches and spectacular wildlife adventures.",
+    description: "Home of Serengeti, Zanzibar and Kilimanjaro.",
   },
-
   {
     name: "Uganda",
     slug: "uganda",
     image: "/images/gorilla/gorilla4.jpg",
-    description:
-      "Experience mountain gorillas, lush rainforests, waterfalls and the incredible Pearl of Africa.",
+    description: "The Pearl of Africa and mountain gorillas.",
   },
-
   {
     name: "Rwanda",
     slug: "rwanda",
     image: "/images/culture/culture4.jpg",
-    description:
-      "Explore Rwanda's clean cities, mountain gorillas, volcanoes and breathtaking landscapes.",
+    description: "Luxury gorilla trekking and rich culture.",
   },
-
   {
     name: "South Africa",
     slug: "south-africa",
     image: "/images/mountain/mountain4.jpg",
-    description:
-      "Experience Cape Town, Kruger National Park, Garden Route and world-class wine regions.",
+    description: "Cape Town, Kruger National Park and wine estates.",
   },
-
   {
-    name: "Mauritius",
-    slug: "mauritius",
-    image: "/images/island/island3.jpg",
-    description:
-      "Luxury island escapes with crystal-clear lagoons, coral reefs and tropical beaches.",
+    name: "Namibia",
+    slug: "namibia",
+    image: "/images/desert/sossusvlei4.jpg",
+    description: "Deserts, wildlife and spectacular landscapes.",
+  },
+  {
+    name: "Botswana",
+    slug: "botswana",
+    image: "/images/safari/safari3.jpg",
+    description: "Okavango Delta and luxury safaris.",
+  },
+  {
+    name: "Seychelles",
+    slug: "seychelles",
+    image: "/images/island/island1.jpg",
+    description: "Luxury island escapes and pristine beaches.",
+  },
+  {
+    name: "Zambia",
+    slug: "zambia",
+    image: "/images/safari/mikumi2.jpg",
+    description: "Victoria Falls and unforgettable wildlife adventures.",
   },
 ];

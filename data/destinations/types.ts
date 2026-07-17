@@ -1,5 +1,3 @@
-export type Season = "low" | "standard" | "peak";
-
 export interface SeasonalPrice {
   low: number;
   standard: number;
@@ -15,6 +13,12 @@ export interface RoomOccupancy {
   luxury: SeasonalPrice;
 }
 
+export interface ItineraryDay {
+  day: string;
+  title: string;
+  description: string;
+}
+
 export interface Destination {
   id: number;
 
@@ -25,6 +29,15 @@ export interface Destination {
   country: string;
 
   category: string;
+
+  tourType:
+    | "Luxury"
+    | "Family"
+    | "Adventure"
+    | "Honeymoon"
+    | "Wildlife"
+    | "Private"
+    | "Photography";
 
   image: string;
 
@@ -48,11 +61,7 @@ export interface Destination {
 
   roomOccupancy: RoomOccupancy[];
 
-  itinerary: {
-    day: string;
-    title: string;
-    description: string;
-  }[];
+  itinerary: ItineraryDay[];
 
   highlights: string[];
 

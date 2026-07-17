@@ -12,6 +12,8 @@ export const tanzania: Destination[] = [
 
     category: "Mountain",
 
+    tourType: "Adventure",
+
     image: "/images/mountain/mountain1.jpg",
 
     gallery: [
@@ -170,6 +172,8 @@ export const tanzania: Destination[] = [
     country: "Tanzania",
 
     category: "Safari",
+
+    tourType: "Wildlife",
 
     image: "/images/safari/serengeti1.jpg",
 
@@ -439,6 +443,8 @@ export const tanzania: Destination[] = [
 
     category: "Safari",
 
+    tourType: "Family",
+
     image: "/images/safari/manyara1.jpg",
 
     gallery: [
@@ -598,6 +604,8 @@ export const tanzania: Destination[] = [
 
     category: "Safari",
 
+    tourType: "Wildlife",
+
     image: "/images/safari/mikumi1.jpg",
 
     gallery: [
@@ -756,6 +764,8 @@ export const tanzania: Destination[] = [
     country: "Tanzania",
 
     category: "Safari",
+
+    tourType: "Wildlife",
 
     image: "/images/safari/ruaha1.jpg",
 
@@ -923,6 +933,8 @@ export const tanzania: Destination[] = [
     country: "Tanzania",
 
     category: "Safari",
+
+    tourType: "Wildlife",
 
     image: "/images/safari/selous1.jpg",
 
@@ -1092,6 +1104,8 @@ export const tanzania: Destination[] = [
 
     category: "Safari",
 
+    tourType: "Wildlife",
+
     image: "/images/safari/tarangire1.jpg",
 
     gallery: [
@@ -1248,6 +1262,8 @@ export const tanzania: Destination[] = [
     country: "Tanzania",
 
     category: "Beach",
+
+    tourType: "Honeymoon",
 
     image: "/images/beach/zanzibar1.jpg",
 
@@ -1411,6 +1427,8 @@ export const tanzania: Destination[] = [
     country: "Tanzania",
 
     category: "Island",
+
+    tourType: "Honeymoon",
 
     image: "/images/island/mafia1.jpg",
 
@@ -1580,6 +1598,8 @@ export const tanzania: Destination[] = [
 
     category: "Island",
 
+    tourType: "Luxury",
+
     image: "/images/island/pemba1.jpg",
 
     gallery: [
@@ -1746,6 +1766,8 @@ export const tanzania: Destination[] = [
     country: "Tanzania",
 
     category: "Culture",
+
+    tourType: "Private",
 
     image: "/images/culture/arusha1.jpg",
 

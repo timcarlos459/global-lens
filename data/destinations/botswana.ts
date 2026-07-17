@@ -12,6 +12,8 @@ export const botswana: Destination[] = [
 
     category: "Safari",
 
+    tourType: "Wildlife",
+
     image: "/images/safari/okavango1.jpg",
 
     gallery: [
@@ -279,6 +281,8 @@ export const botswana: Destination[] = [
 
     category: "Safari",
 
+    tourType: "Wildlife",
+
     image: "/images/safari/chobe1.jpg",
 
     gallery: [
@@ -538,6 +542,8 @@ export const botswana: Destination[] = [
     country: "Botswana",
 
     category: "Safari",
+
+    tourType: "Wildlife",
 
     image: "/images/safari/moremi1.jpg",
 
@@ -807,6 +813,8 @@ export const botswana: Destination[] = [
 
     category: "Desert",
 
+    tourType: "Photography",
+
     image: "/images/desert/makgadikgadi1.jpg",
 
     gallery: [
@@ -1066,6 +1074,8 @@ export const botswana: Destination[] = [
     country: "Botswana",
 
     category: "Safari",
+
+    tourType: "Wildlife",
 
     image: "/images/safari/kalahari1.jpg",
 
@@ -1334,6 +1344,8 @@ export const botswana: Destination[] = [
 
     category: "Culture",
 
+    tourType: "Private",
+
     image: "/images/culture/tsodilo1.jpg",
 
     gallery: [
@@ -1584,7 +1596,7 @@ export const botswana: Destination[] = [
     ],
   },
   {
-    id: 8,
+    id: 7,
 
     slug: "nxai-pan-national-park",
 
@@ -1593,6 +1605,8 @@ export const botswana: Destination[] = [
     country: "Botswana",
 
     category: "Safari",
+
+    tourType: "Wildlife",
 
     image: "/images/safari/nxai1.jpg",
 
@@ -1844,7 +1858,7 @@ export const botswana: Destination[] = [
     ],
   },
   {
-    id: 7,
+    id: 8,
 
     slug: "gaborone-city",
 
@@ -1853,6 +1867,8 @@ export const botswana: Destination[] = [
     country: "Botswana",
 
     category: "City",
+
+    tourType: "Private",
 
     image: "/images/city/gaborone1.jpg",
 

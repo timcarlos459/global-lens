@@ -12,6 +12,8 @@ export const namibia: Destination[] = [
 
     category: "Safari",
 
+    tourType: "Wildlife",
+
     image: "/images/safari/etosha1.jpg",
 
     gallery: [
@@ -279,6 +281,8 @@ export const namibia: Destination[] = [
 
     category: "Desert",
 
+    tourType: "Photography",
+
     image: "/images/desert/sossusvlei1.jpg",
 
     gallery: [
@@ -538,6 +542,8 @@ export const namibia: Destination[] = [
     country: "Namibia",
 
     category: "Beach",
+
+    tourType: "Family",
 
     image: "/images/beach/swakopmund1.jpg",
 
@@ -799,6 +805,8 @@ export const namibia: Destination[] = [
 
     category: "Culture",
 
+    tourType: "Family",
+
     image: "/images/culture/damaraland1.jpg",
 
     gallery: [
@@ -1058,6 +1066,8 @@ export const namibia: Destination[] = [
     country: "Namibia",
 
     category: "Beach",
+
+    tourType: "Photography",
 
     image: "/images/beach/skeleton1.jpg",
 
@@ -1326,6 +1336,8 @@ export const namibia: Destination[] = [
 
     category: "Mountain",
 
+    tourType: "Adventure",
+
     image: "/images/mountain/fishriver1.jpg",
 
     gallery: [
@@ -1586,6 +1598,8 @@ export const namibia: Destination[] = [
 
     category: "City",
 
+    tourType: "Private",
+
     image: "/images/city/windhoek1.jpg",
 
     gallery: [
@@ -1838,6 +1852,8 @@ export const namibia: Destination[] = [
     country: "Namibia",
 
     category: "Mountain",
+
+    tourType: "Adventure",
 
     image: "/images/mountain/spitzkoppe1.jpg",
 

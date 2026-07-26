@@ -2,7 +2,7 @@ import { Destination } from "../destinations/types";
 
 export const rwanda: Destination[] = [
   {
-    id: 1,
+    id: 29,
 
     slug: "volcanoes-national-park",
 
@@ -264,7 +264,7 @@ export const rwanda: Destination[] = [
     ],
   },
   {
-    id: 2,
+    id: 30,
 
     slug: "kigali-city",
 
@@ -519,7 +519,7 @@ export const rwanda: Destination[] = [
     ],
   },
   {
-    id: 3,
+    id: 31,
 
     slug: "lake-kivu",
 
@@ -781,7 +781,7 @@ export const rwanda: Destination[] = [
     ],
   },
   {
-    id: 4,
+    id: 32,
 
     slug: "nyungwe-forest-national-park",
 
@@ -1043,7 +1043,7 @@ export const rwanda: Destination[] = [
     ],
   },
   {
-    id: 5,
+    id: 33,
 
     slug: "akagera-national-park",
 
@@ -1305,7 +1305,7 @@ export const rwanda: Destination[] = [
     ],
   },
   {
-    id: 6,
+    id: 34,
 
     slug: "musanze-adventure",
 
@@ -1567,7 +1567,7 @@ export const rwanda: Destination[] = [
     ],
   },
   {
-    id: 7,
+    id: 35,
 
     slug: "kings-palace-museum",
 
@@ -1822,7 +1822,7 @@ export const rwanda: Destination[] = [
     ],
   },
   {
-    id: 8,
+    id: 36,
 
     slug: "kigali-genocide-memorial",
 

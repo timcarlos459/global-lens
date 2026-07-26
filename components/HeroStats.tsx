@@ -25,12 +25,9 @@ export default function HeroStats() {
   ];
 
   return (
-    <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-30 w-full max-w-7xl px-8">
-
+    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 z-22 w-full max-w-7xl px-8">
       <div className="backdrop-blur-xl bg-white/10 border border-white/20 rounded-3xl shadow-2xl">
-
         <div className="grid grid-cols-2 md:grid-cols-5">
-
           {stats.map((item, index) => (
             <div
               key={index}
@@ -40,16 +37,11 @@ export default function HeroStats() {
                 {item.number}
               </h2>
 
-              <p className="text-white mt-2 tracking-wide">
-                {item.label}
-              </p>
+              <p className="text-white mt-2 tracking-wide">{item.label}</p>
             </div>
           ))}
-
         </div>
-
       </div>
-
     </div>
   );
 }

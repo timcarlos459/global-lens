@@ -2,7 +2,7 @@ import { Destination } from "../destinations/types";
 
 export const botswana: Destination[] = [
   {
-    id: 1,
+    id: 13,
 
     slug: "okavango-delta",
 
@@ -271,7 +271,7 @@ export const botswana: Destination[] = [
     ],
   },
   {
-    id: 2,
+    id: 14,
 
     slug: "chobe-national-park",
 
@@ -533,7 +533,7 @@ export const botswana: Destination[] = [
     ],
   },
   {
-    id: 3,
+    id: 15,
 
     slug: "moremi-game-reserve",
 
@@ -803,7 +803,7 @@ export const botswana: Destination[] = [
     ],
   },
   {
-    id: 4,
+    id: 16,
 
     slug: "makgadikgadi-salt-pans",
 
@@ -1065,7 +1065,7 @@ export const botswana: Destination[] = [
     ],
   },
   {
-    id: 5,
+    id: 17,
 
     slug: "central-kalahari-game-reserve",
 
@@ -1334,7 +1334,7 @@ export const botswana: Destination[] = [
     ],
   },
   {
-    id: 6,
+    id: 18,
 
     slug: "tsodilo-hills",
 
@@ -1596,7 +1596,7 @@ export const botswana: Destination[] = [
     ],
   },
   {
-    id: 7,
+    id: 19,
 
     slug: "nxai-pan-national-park",
 
@@ -1858,7 +1858,7 @@ export const botswana: Destination[] = [
     ],
   },
   {
-    id: 8,
+    id: 20,
 
     slug: "gaborone-city",
 

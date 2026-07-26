@@ -43,7 +43,7 @@ export default function Hero({ destination }: HeroProps) {
 
           <div className="flex flex-wrap gap-5">
             <Link
-              href={`/booking?tour=${destination.slug}`}
+              href={`/booking/${destination.slug}`}
               className="bg-[#64D98B] hover:bg-[#53c67b] text-[#081B29] px-8 py-4 rounded-2xl font-bold transition"
             >
               Book This Tour

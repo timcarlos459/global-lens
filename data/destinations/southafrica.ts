@@ -2,7 +2,7 @@ import { Destination } from "./types";
 
 export const southAfrica: Destination[] = [
   {
-    id: 1,
+    id: 45,
 
     slug: "kruger-national-park",
 
@@ -271,7 +271,7 @@ export const southAfrica: Destination[] = [
     ],
   },
   {
-    id: 2,
+    id: 46,
 
     slug: "addo-elephant-national-park",
 
@@ -533,7 +533,7 @@ export const southAfrica: Destination[] = [
     ],
   },
   {
-    id: 3,
+    id: 47,
 
     slug: "cape-town-city",
 
@@ -795,7 +795,7 @@ export const southAfrica: Destination[] = [
     ],
   },
   {
-    id: 4,
+    id: 48,
 
     slug: "table-mountain",
 
@@ -1050,7 +1050,7 @@ export const southAfrica: Destination[] = [
     ],
   },
   {
-    id: 5,
+    id: 49,
 
     slug: "drakensberg-mountains",
 
@@ -1319,7 +1319,7 @@ export const southAfrica: Destination[] = [
     ],
   },
   {
-    id: 6,
+    id: 50,
 
     slug: "boulders-beach",
 
@@ -1574,7 +1574,7 @@ export const southAfrica: Destination[] = [
     ],
   },
   {
-    id: 7,
+    id: 51,
 
     slug: "durban-beach-escape",
 
@@ -1836,7 +1836,7 @@ export const southAfrica: Destination[] = [
     ],
   },
   {
-    id: 8,
+    id: 52,
 
     slug: "cape-peninsula-cape-point",
 

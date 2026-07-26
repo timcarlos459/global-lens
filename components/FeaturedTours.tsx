@@ -27,7 +27,7 @@ export default function FeaturedTours() {
 
         {/* Tour Cards */}
         <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-10">
-          {destinations.slice(0, 6).map((tour) => {
+          {destinations.slice(0, 3).map((tour) => {
             const startingPrice = tour.roomOccupancy.find(
               (room) => room.guests === 1,
             );
@@ -52,7 +52,7 @@ export default function FeaturedTours() {
                 </div>
 
                 {/* Content */}
-                <div className="p-8">
+                <div className="p-6">
                   <div className="flex gap-1 text-yellow-400">
                     {[...Array(tour.rating)].map((_, i) => (
                       <Star key={i} size={16} fill="currentColor" />
@@ -65,12 +65,12 @@ export default function FeaturedTours() {
 
                   <div className="flex flex-wrap gap-5 mt-4 text-gray-500">
                     <span className="flex items-center gap-2">
-                      <MapPin size={18} />
+                      <MapPin size={14} />
                       {tour.country}
                     </span>
 
                     <span className="flex items-center gap-2">
-                      <Clock3 size={18} />
+                      <Clock3 size={14} />
                       {tour.duration}
                     </span>
                   </div>

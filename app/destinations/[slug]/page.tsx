@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
@@ -188,9 +189,12 @@ export default async function DestinationPage({ params }: Props) {
                 <p className="mt-2 text-sm text-gray-500">Per Person Sharing</p>
               </div>
 
-              <button className="mt-8 w-full rounded-full bg-[#64D98B] py-4 text-lg font-bold text-[#081B29] transition hover:bg-green-500">
+              <Link
+                href={`/booking/${destination.slug}`}
+                className="mt-8 flex w-full items-center justify-center rounded-full bg-[#64D98B] py-4 text-lg font-bold text-[#081B29] transition hover:bg-green-500"
+              >
                 Book This Tour
-              </button>
+              </Link>
             </div>
           </aside>
         </div>

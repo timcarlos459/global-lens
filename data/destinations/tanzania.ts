@@ -2,7 +2,7 @@ import { Destination } from "../destinations/types";
 
 export const tanzania: Destination[] = [
   {
-    id: 1,
+    id: 53,
 
     slug: "mount-kilimanjaro",
 
@@ -163,7 +163,7 @@ export const tanzania: Destination[] = [
     ],
   },
   {
-    id: 2,
+    id: 54,
 
     slug: "serengeti",
 
@@ -433,7 +433,7 @@ export const tanzania: Destination[] = [
     ],
   },
   {
-    id: 3,
+    id: 55,
 
     slug: "lake-manyara",
 
@@ -594,7 +594,7 @@ export const tanzania: Destination[] = [
     ],
   },
   {
-    id: 4,
+    id: 56,
 
     slug: "mikumi-national-park",
 
@@ -755,7 +755,7 @@ export const tanzania: Destination[] = [
     ],
   },
   {
-    id: 5,
+    id: 57,
 
     slug: "ruaha-national-park",
 
@@ -924,7 +924,7 @@ export const tanzania: Destination[] = [
   },
 
   {
-    id: 6,
+    id: 58,
 
     slug: "nyerere-national-park",
 
@@ -1094,7 +1094,7 @@ export const tanzania: Destination[] = [
     ],
   },
   {
-    id: 7,
+    id: 59,
 
     slug: "tarangire",
 
@@ -1253,7 +1253,7 @@ export const tanzania: Destination[] = [
     ],
   },
   {
-    id: 8,
+    id: 60,
 
     slug: "zanzibar",
 
@@ -1418,7 +1418,7 @@ export const tanzania: Destination[] = [
     ],
   },
   {
-    id: 9,
+    id: 61,
 
     slug: "mafia-island",
 
@@ -1588,7 +1588,7 @@ export const tanzania: Destination[] = [
     ],
   },
   {
-    id: 10,
+    id: 62,
 
     slug: "pemba-island",
 
@@ -1757,7 +1757,7 @@ export const tanzania: Destination[] = [
     ],
   },
   {
-    id: 11,
+    id: 63,
 
     slug: "arusha",
 

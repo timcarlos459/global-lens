@@ -2,7 +2,7 @@ import { Destination } from "../destinations/types";
 
 export const uganda: Destination[] = [
   {
-    id: 1,
+    id: 64,
 
     slug: "bwindi-impenetrable-forest",
 
@@ -264,7 +264,7 @@ export const uganda: Destination[] = [
     ],
   },
   {
-    id: 2,
+    id: 65,
 
     slug: "queen-elizabeth-national-park",
 
@@ -534,7 +534,7 @@ export const uganda: Destination[] = [
     ],
   },
   {
-    id: 3,
+    id: 66,
 
     slug: "murchison-falls-national-park",
 
@@ -804,7 +804,7 @@ export const uganda: Destination[] = [
     ],
   },
   {
-    id: 4,
+    id: 67,
 
     slug: "mgahinga-gorilla-national-park",
 
@@ -1067,7 +1067,7 @@ export const uganda: Destination[] = [
     ],
   },
   {
-    id: 5,
+    id: 68,
 
     slug: "jinja-source-of-the-nile",
 
@@ -1331,7 +1331,7 @@ export const uganda: Destination[] = [
     ],
   },
   {
-    id: 6,
+    id: 69,
 
     slug: "rwenzori-mountains",
 
@@ -1602,7 +1602,7 @@ export const uganda: Destination[] = [
     ],
   },
   {
-    id: 7,
+    id: 70,
 
     slug: "kidepo-valley-national-park",
 
@@ -1872,7 +1872,7 @@ export const uganda: Destination[] = [
     ],
   },
   {
-    id: 8,
+    id: 71,
 
     slug: "entebbe-city-experience",
 

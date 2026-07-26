@@ -2,7 +2,7 @@ import { Destination } from "../destinations/types";
 
 export const seychelles: Destination[] = [
   {
-    id: 1,
+    id: 37,
 
     slug: "anse-source-dargent",
 
@@ -264,7 +264,7 @@ export const seychelles: Destination[] = [
     ],
   },
   {
-    id: 2,
+    id: 38,
 
     slug: "beau-vallon-beach",
 
@@ -527,7 +527,7 @@ export const seychelles: Destination[] = [
     ],
   },
   {
-    id: 3,
+    id: 39,
 
     slug: "morne-seychellois-national-park",
 
@@ -789,7 +789,7 @@ export const seychelles: Destination[] = [
     ],
   },
   {
-    id: 4,
+    id: 40,
 
     slug: "vallee-de-mai-nature-reserve",
 
@@ -1051,7 +1051,7 @@ export const seychelles: Destination[] = [
     ],
   },
   {
-    id: 5,
+    id: 41,
 
     slug: "curieuse-island-marine-park",
 
@@ -1313,7 +1313,7 @@ export const seychelles: Destination[] = [
     ],
   },
   {
-    id: 6,
+    id: 42,
 
     slug: "victoria-city",
 
@@ -1568,7 +1568,7 @@ export const seychelles: Destination[] = [
     ],
   },
   {
-    id: 7,
+    id: 43,
 
     slug: "sainte-anne-marine-national-park",
 
@@ -1832,7 +1832,7 @@ export const seychelles: Destination[] = [
     ],
   },
   {
-    id: 8,
+    id: 44,
 
     slug: "praslin-island-escape",
 

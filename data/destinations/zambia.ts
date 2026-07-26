@@ -2,7 +2,7 @@ import { Destination } from "../destinations/types";
 
 export const zambia: Destination[] = [
   {
-    id: 1,
+    id: 72,
 
     slug: "victoria-falls",
 
@@ -264,7 +264,7 @@ export const zambia: Destination[] = [
     ],
   },
   {
-    id: 2,
+    id: 73,
 
     slug: "south-luangwa-national-park",
 
@@ -534,7 +534,7 @@ export const zambia: Destination[] = [
     ],
   },
   {
-    id: 3,
+    id: 74,
 
     slug: "lower-zambezi-national-park",
 
@@ -805,7 +805,7 @@ export const zambia: Destination[] = [
     ],
   },
   {
-    id: 4,
+    id: 75,
 
     slug: "kafue-national-park",
 
@@ -1076,7 +1076,7 @@ export const zambia: Destination[] = [
     ],
   },
   {
-    id: 5,
+    id: 76,
 
     slug: "lake-kariba",
 
@@ -1338,7 +1338,7 @@ export const zambia: Destination[] = [
     ],
   },
   {
-    id: 6,
+    id: 77,
 
     slug: "lusaka-city",
 
@@ -1593,7 +1593,7 @@ export const zambia: Destination[] = [
     ],
   },
   {
-    id: 7,
+    id: 78,
 
     slug: "kasanka-national-park",
 
@@ -1856,7 +1856,7 @@ export const zambia: Destination[] = [
     ],
   },
   {
-    id: 8,
+    id: 79,
 
     slug: "liuwa-plain-national-park",
 

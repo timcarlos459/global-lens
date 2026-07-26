@@ -2,7 +2,7 @@ import { Destination } from "../destinations/types";
 
 export const namibia: Destination[] = [
   {
-    id: 1,
+    id: 21,
 
     slug: "etosha-national-park",
 
@@ -271,7 +271,7 @@ export const namibia: Destination[] = [
     ],
   },
   {
-    id: 2,
+    id: 22,
 
     slug: "sossusvlei-desert",
 
@@ -533,7 +533,7 @@ export const namibia: Destination[] = [
     ],
   },
   {
-    id: 3,
+    id: 23,
 
     slug: "swakopmund",
 
@@ -795,7 +795,7 @@ export const namibia: Destination[] = [
     ],
   },
   {
-    id: 4,
+    id: 24,
 
     slug: "damaraland",
 
@@ -1057,7 +1057,7 @@ export const namibia: Destination[] = [
     ],
   },
   {
-    id: 5,
+    id: 25,
 
     slug: "skeleton-coast",
 
@@ -1326,7 +1326,7 @@ export const namibia: Destination[] = [
     ],
   },
   {
-    id: 6,
+    id: 26,
 
     slug: "fish-river-canyon",
 
@@ -1588,7 +1588,7 @@ export const namibia: Destination[] = [
     ],
   },
   {
-    id: 7,
+    id: 27,
 
     slug: "windhoek-city",
 
@@ -1843,7 +1843,7 @@ export const namibia: Destination[] = [
     ],
   },
   {
-    id: 8,
+    id: 28,
 
     slug: "spitzkoppe",
 

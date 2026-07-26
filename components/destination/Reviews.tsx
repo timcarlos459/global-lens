@@ -5,7 +5,7 @@ import { Quote, Star } from "lucide-react";
 
 const reviews = [
   {
-    id: 1,
+    id: 101,
     name: "Sophie Laurent",
     country: "France",
     image: "/images/testimonials/traveler1.jpg",
@@ -15,7 +15,7 @@ const reviews = [
       "Every detail exceeded expectations. From sunrise safaris to luxury camps overlooking the savannah, this became one of the finest journeys we've ever experienced.",
   },
   {
-    id: 2,
+    id: 201,
     name: "Michael Schneider",
     country: "Germany",
     image: "/images/testimonials/traveler2.jpg",
@@ -25,7 +25,7 @@ const reviews = [
       "Professional planning, outstanding guides and exceptional service throughout. Africa felt effortless with Global Lens taking care of everything.",
   },
   {
-    id: 3,
+    id: 303,
     name: "Isabella Rossi",
     country: "Italy",
     image: "/images/testimonials/traveler3.jpg",
@@ -35,7 +35,7 @@ const reviews = [
       "Our honeymoon across Tanzania and Zanzibar was absolutely magical. Luxury, privacy and unforgettable memories in every destination.",
   },
   {
-    id: 4,
+    id: 404,
     name: "Daniel Alvarez",
     country: "Spain",
     image: "/images/testimonials/traveler4.jpg",
@@ -45,7 +45,7 @@ const reviews = [
       "The safari experience was breathtaking. Seeing the Big Five with expert guides while staying in beautiful lodges was beyond imagination.",
   },
   {
-    id: 5,
+    id: 504,
     name: "Olivia Bennett",
     country: "Australia",
     image: "/images/testimonials/traveler5.jpg",
@@ -55,7 +55,7 @@ const reviews = [
       "I've travelled extensively, but this was easily among my top travel experiences. Every transfer, activity and destination felt perfectly curated.",
   },
   {
-    id: 6,
+    id: 606,
     name: "Noah van Dijk",
     country: "Netherlands",
     image: "/images/testimonials/traveler6.jpg",

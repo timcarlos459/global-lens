@@ -12,7 +12,7 @@ export type Tour = {
 
 export const tours: Tour[] = [
   {
-    id: 1,
+    id: 100,
     slug: "maasai-cultural-experience",
     title: "Maasai Cultural Experience",
     country: "Kenya",
@@ -25,7 +25,7 @@ export const tours: Tour[] = [
   },
 
   {
-    id: 2,
+    id: 200,
     slug: "diani-beach-escape",
     title: "Diani Beach Escape",
     country: "Kenya",
@@ -38,7 +38,7 @@ export const tours: Tour[] = [
   },
 
   {
-    id: 3,
+    id: 300,
     slug: "bwindi-gorilla-trekking",
     title: "Bwindi Gorilla Trekking",
     country: "Uganda",
@@ -51,7 +51,7 @@ export const tours: Tour[] = [
   },
 
   {
-    id: 4,
+    id: 400,
     slug: "kilimanjaro-adventure",
     title: "Mount Kilimanjaro Adventure",
     country: "Tanzania",
@@ -64,7 +64,7 @@ export const tours: Tour[] = [
   },
 
   {
-    id: 5,
+    id: 500,
     slug: "maasai-mara-luxury-safari",
     title: "Maasai Mara Luxury Safari",
     country: "Kenya",
@@ -77,7 +77,7 @@ export const tours: Tour[] = [
   },
 
   {
-    id: 6,
+    id: 600,
     slug: "seychelles-luxury-escape",
     title: "Seychelles Luxury Escape",
     country: "Seychelles",

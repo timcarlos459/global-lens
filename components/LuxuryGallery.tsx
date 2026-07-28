@@ -2,27 +2,27 @@
 
 import Image from "next/image";
 
-const gallery = [
-  "/images/safari/murchison4.jpg",
-  "/images/lake/lakekivu1.jpg",
-  "/images/mountain/mountain1.jpg",
-  "/images/gorilla/gorilla1.jpg",
-  "/images/island/mauritius3.jpg",
-  "/images/culture/maasai1.jpg",
-  "/images/beach/beauvallon3.jpg",
-  "/images/city/capetown4.jpg",
-  "/images/museum/memorial4.jpg",
-  "/images/desert/sossusvlei4.jpg",
-  "/images/forest/nyungwe3.jpg",
-  "/images/nature/victoriafalls3.jpg",
-];
+export interface GalleryItem {
+  id: string;
+  title: string;
+  image_url: string;
+  category: string;
+  destination: string | null;
+  description: string | null;
+  featured: boolean;
+}
 
-export default function LuxuryGallery() {
+interface LuxuryGalleryProps {
+  items: GalleryItem[];
+}
+
+export default function LuxuryGallery({ items }: LuxuryGalleryProps) {
   return (
     <section className="bg-white py-28">
       <div className="mx-auto max-w-7xl px-6">
+        {/* HEADER */}
         <div className="mb-16 text-center">
-          <p className="uppercase tracking-[6px] text-[#64D98B] font-semibold">
+          <p className="font-semibold uppercase tracking-[6px] text-[#64D98B]">
             Travel Gallery
           </p>
 
@@ -32,31 +32,65 @@ export default function LuxuryGallery() {
 
           <p className="mx-auto mt-6 max-w-3xl text-lg text-gray-600">
             Every journey tells a story. Explore breathtaking moments captured
-            across Africas most iconic destinations.
+            across Africa&apos;s most iconic destinations.
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {gallery.map((image) => (
-            <div
-              key={image}
-              className="group relative h-72 overflow-hidden rounded-3xl"
-            >
-              <Image
-                src={image}
-                alt="Africa"
-                fill
-                className="object-cover transition duration-700 group-hover:scale-110"
-              />
+        {/* EMPTY STATE */}
+        {items.length === 0 ? (
+          <div className="rounded-3xl border border-gray-200 bg-gray-50 px-6 py-20 text-center">
+            <p className="text-lg font-bold text-[#081B29]">
+              Our gallery is being updated.
+            </p>
 
-              <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent opacity-0 transition duration-500 group-hover:opacity-100" />
+            <p className="mt-2 text-gray-500">
+              Beautiful travel moments will appear here soon.
+            </p>
+          </div>
+        ) : (
+          /* GALLERY */
+          <div className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4">
+            {items.map((item) => (
+              <div
+                key={item.id}
+                className="group relative h-72 overflow-hidden rounded-3xl"
+              >
+                {/* IMAGE */}
+                {item.image_url?.trim() ? (
+                  <Image
+                    src={item.image_url.trim()}
+                    alt={item.title}
+                    fill
+                    sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                    className="object-cover transition duration-700 group-hover:scale-110"
+                  />
+                ) : (
+                  <div className="flex h-full items-center justify-center bg-gray-100 text-sm text-gray-400">
+                    No image
+                  </div>
+                )}
 
-              <div className="absolute bottom-6 left-6 translate-y-4 text-white opacity-0 transition duration-500 group-hover:translate-y-0 group-hover:opacity-100">
-                <h3 className="text-xl font-bold">Explore Africa</h3>
+                {/* OVERLAY */}
+                <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/10 to-transparent opacity-0 transition duration-500 group-hover:opacity-100" />
+
+                {/* CONTENT */}
+                <div className="absolute bottom-6 left-6 right-6 translate-y-4 text-white opacity-0 transition duration-500 group-hover:translate-y-0 group-hover:opacity-100">
+                  <p className="mb-1 text-xs font-bold uppercase tracking-[2px] text-[#64D98B]">
+                    {item.category}
+                  </p>
+
+                  <h3 className="text-xl font-bold">{item.title}</h3>
+
+                  {item.destination && (
+                    <p className="mt-1 text-sm text-white/80">
+                      {item.destination}
+                    </p>
+                  )}
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );

@@ -28,7 +28,7 @@ export const kenya: Destination[] = [
 
     rating: 5,
 
-    duration: "5 Days",
+    duration: "4 Days",
 
     location: "Narok County, Kenya",
 
@@ -50,21 +50,21 @@ export const kenya: Destination[] = [
         rooms: "1 Room",
 
         standard: {
-          low: 4500,
-          standard: 4900,
-          peak: 5400,
+          low: 7500,
+          standard: 7800,
+          peak: 8000,
         },
 
         deluxe: {
-          low: 5600,
-          standard: 6100,
-          peak: 6700,
+          low: 8200,
+          standard: 8600,
+          peak: 8800,
         },
 
         luxury: {
-          low: 7200,
-          standard: 7900,
-          peak: 8600,
+          low: 9000,
+          standard: 9400,
+          peak: 9800,
         },
       },
 
@@ -73,21 +73,21 @@ export const kenya: Destination[] = [
         rooms: "1 Room",
 
         standard: {
-          low: 4300,
-          standard: 4700,
-          peak: 5200,
+          low: 7400,
+          standard: 7700,
+          peak: 7900,
         },
 
         deluxe: {
-          low: 5400,
-          standard: 5900,
-          peak: 6500,
+          low: 8100,
+          standard: 8500,
+          peak: 8700,
         },
 
         luxury: {
-          low: 7000,
-          standard: 7700,
-          peak: 8400,
+          low: 8900,
+          standard: 9300,
+          peak: 9700,
         },
       },
 
@@ -96,21 +96,21 @@ export const kenya: Destination[] = [
         rooms: "2 Rooms",
 
         standard: {
-          low: 4100,
-          standard: 4500,
-          peak: 5000,
+          low: 7300,
+          standard: 7600,
+          peak: 7800,
         },
 
         deluxe: {
-          low: 5200,
-          standard: 5700,
-          peak: 6300,
+          low: 8000,
+          standard: 8400,
+          peak: 8600,
         },
 
         luxury: {
-          low: 6800,
-          standard: 7500,
-          peak: 8200,
+          low: 8800,
+          standard: 9200,
+          peak: 9600,
         },
       },
 
@@ -119,21 +119,21 @@ export const kenya: Destination[] = [
         rooms: "2 Rooms",
 
         standard: {
-          low: 3900,
-          standard: 4300,
-          peak: 4800,
+          low: 7200,
+          standard: 7500,
+          peak: 7700,
         },
 
         deluxe: {
-          low: 5000,
-          standard: 5500,
-          peak: 6100,
+          low: 7900,
+          standard: 8300,
+          peak: 8500,
         },
 
         luxury: {
-          low: 6600,
-          standard: 7300,
-          peak: 8000,
+          low: 8700,
+          standard: 9100,
+          peak: 9500,
         },
       },
 
@@ -142,21 +142,21 @@ export const kenya: Destination[] = [
         rooms: "3 Rooms",
 
         standard: {
-          low: 3700,
-          standard: 4100,
-          peak: 4600,
+          low: 7100,
+          standard: 7400,
+          peak: 7600,
         },
 
         deluxe: {
-          low: 4800,
-          standard: 5300,
-          peak: 5900,
+          low: 7800,
+          standard: 8200,
+          peak: 8400,
         },
 
         luxury: {
-          low: 6400,
-          standard: 7100,
-          peak: 7800,
+          low: 8600,
+          standard: 9000,
+          peak: 9400,
         },
       },
 
@@ -165,21 +165,21 @@ export const kenya: Destination[] = [
         rooms: "3 Rooms",
 
         standard: {
-          low: 3500,
-          standard: 3900,
-          peak: 4400,
+          low: 7000,
+          standard: 7300,
+          peak: 7500,
         },
 
         deluxe: {
-          low: 4600,
-          standard: 5100,
-          peak: 5700,
+          low: 7700,
+          standard: 8100,
+          peak: 8300,
         },
 
         luxury: {
-          low: 6200,
-          standard: 6900,
-          peak: 7600,
+          low: 8500,
+          standard: 8900,
+          peak: 9300,
         },
       },
 
@@ -225,21 +225,14 @@ export const kenya: Destination[] = [
         day: "Day 3",
         title: "Balloon Safari & Maasai Village",
         description:
-          "Optional sunrise hot-air balloon safari followed by a cultural visit to a traditional Maasai village.",
+          "Optional sunrise hot-air balloon safari followed by a cultural visit to a traditional Maasai village. Evening at leisure.",
       },
 
       {
         day: "Day 4",
-        title: "Morning & Afternoon Game Drives",
+        title: "Morning Game Drive & Departure",
         description:
-          "Continue exploring different sections of the reserve while enjoying breathtaking landscapes and abundant wildlife.",
-      },
-
-      {
-        day: "Day 5",
-        title: "Departure",
-        description:
-          "Breakfast at the lodge before checking out and returning to Nairobi.",
+          "Early morning game drive followed by breakfast at the lodge. Check out and return to Nairobi with memories to last a lifetime.",
       },
     ],
 

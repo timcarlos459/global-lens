@@ -9,7 +9,15 @@ import Partners from "@/components/Partners";
 import Newsletter from "@/components/Newsletter";
 import Footer from "@/components/Footer";
 
-export default function Home() {
+import { getGalleryItems } from "@/actions/adminGallery";
+
+export default async function Home() {
+  const galleryItems = await getGalleryItems();
+
+  const publishedGalleryItems = galleryItems.filter(
+    (item) => item.status === "Published",
+  );
+
   return (
     <main className="overflow-x-hidden bg-white">
       <Navbar />
@@ -24,7 +32,7 @@ export default function Home() {
 
       <PopularDestinations />
 
-      <LuxuryGallery />
+      <LuxuryGallery items={publishedGalleryItems} />
 
       <Partners />
 

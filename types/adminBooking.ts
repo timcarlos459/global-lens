@@ -1,15 +1,36 @@
 // types/adminBooking.ts
 
 export interface Booking {
-  destination_id: number;
-  id: number;
+  id: string;
+  created_at: string;
+
   booking_reference: string;
+
   full_name: string;
-  destination: string;
-  arrival_date: string;
+  email: string;
+  phone: string;
+  country: string;
+
   adults: number;
   children: number;
+  infants: number;
+
+  arrival_date: string;
+  departure_date: string;
+
+  tour_slug: string;
+
+  special_requests: string | null;
+
   total_price: number;
-  payment_status: "pending" | "deposit" | "paid";
-  booking_status: "pending" | "confirmed" | "cancelled";
+
+  payment_status: string;
+  payment_id: string | null;
+  payment_currency: string | null;
+  payment_amount: number | null;
+  payment_option: string | null;
+
+  booking_status: string;
+
+  room_type: string | null;
 }

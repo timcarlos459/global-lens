@@ -4,78 +4,130 @@ import { getBookings } from "@/actions/adminBookings";
 import { getCustomers } from "@/actions/adminCustomers";
 import { getPayments } from "@/actions/adminPayments";
 
+function escapeCsv(value: unknown): string {
+  if (value === null || value === undefined) {
+    return "";
+  }
+
+  const text = String(value);
+
+  // Escape commas, quotes and line breaks correctly for CSV
+  if (
+    text.includes(",") ||
+    text.includes('"') ||
+    text.includes("\n") ||
+    text.includes("\r")
+  ) {
+    return `"${text.replace(/"/g, '""')}"`;
+  }
+
+  return text;
+}
+
 export async function GET() {
-  const bookings = await getBookings();
+  try {
+    const bookings = await getBookings();
+    const customers = await getCustomers();
+    const payments = await getPayments();
 
-  const customers = await getCustomers();
+    let csv = "";
 
-  const payments = await getPayments();
+    // =====================================================
+    // GLOBAL LENS TOURS REPORT
+    // =====================================================
 
-  let csv = "";
+    csv += "GLOBAL LENS TOURS REPORT\n\n";
 
-  csv += "GLOBAL LENS TOURS REPORT\n\n";
+    // =====================================================
+    // BOOKINGS
+    // =====================================================
 
-  csv += "BOOKINGS\n";
+    csv += "BOOKINGS\n";
 
-  csv +=
-    "Reference,Customer,Destination,Arrival Date,Adults,Children,Total Price,Payment Status,Booking Status\n";
-
-  bookings.forEach((booking) => {
     csv +=
-      `${booking.booking_reference},` +
-      `${booking.full_name},` +
-      `${booking.destination},` +
-      `${booking.arrival_date},` +
-      `${booking.adults},` +
-      `${booking.children},` +
-      `${booking.total_price},` +
-      `${booking.payment_status},` +
-      `${booking.booking_status}\n`;
-  });
+      "Reference,Customer,Tour,Arrival Date,Adults,Children,Total Price,Payment Status,Booking Status\n";
 
-  csv += "\n\n";
+    bookings.forEach((booking) => {
+      csv +=
+        `${escapeCsv(booking.booking_reference)},` +
+        `${escapeCsv(booking.full_name)},` +
+        `${escapeCsv(booking.tour_slug)},` +
+        `${escapeCsv(booking.arrival_date)},` +
+        `${escapeCsv(booking.adults)},` +
+        `${escapeCsv(booking.children)},` +
+        `${escapeCsv(booking.total_price)},` +
+        `${escapeCsv(booking.payment_status)},` +
+        `${escapeCsv(booking.booking_status)}\n`;
+    });
 
-  csv += "CUSTOMERS\n";
+    csv += "\n\n";
 
-  csv += "Name,Email,Phone,Country,City,Joined,Status,Bookings,Spent\n";
+    // =====================================================
+    // CUSTOMERS
+    // =====================================================
 
-  customers.forEach((customer) => {
+    csv += "CUSTOMERS\n";
+
+    csv += "Name,Email,Phone,Country,City,Joined,Status,Bookings,Spent\n";
+
+    customers.forEach((customer) => {
+      csv +=
+        `${escapeCsv(customer.full_name)},` +
+        `${escapeCsv(customer.email)},` +
+        `${escapeCsv(customer.phone)},` +
+        `${escapeCsv(customer.country)},` +
+        `${escapeCsv(customer.city)},` +
+        `${escapeCsv(customer.joined_date)},` +
+        `${escapeCsv(customer.status)},` +
+        `${escapeCsv(customer.total_bookings)},` +
+        `${escapeCsv(customer.total_spent)}\n`;
+    });
+
+    csv += "\n\n";
+
+    // =====================================================
+    // PAYMENTS
+    // =====================================================
+
+    csv += "PAYMENTS\n";
+
     csv +=
-      `${customer.full_name},` +
-      `${customer.email},` +
-      `${customer.phone},` +
-      `${customer.country},` +
-      `${customer.city},` +
-      `${customer.joined_date},` +
-      `${customer.status},` +
-      `${customer.total_bookings},` +
-      `${customer.total_spent}\n`;
-  });
+      "Reference,Booking,Customer,Amount,Method,Status,Transaction ID,Payment Date\n";
 
-  csv += "\n\n";
+    payments.forEach((payment) => {
+      csv +=
+        `${escapeCsv(payment.payment_reference)},` +
+        `${escapeCsv(payment.booking_reference)},` +
+        `${escapeCsv(payment.customer_name)},` +
+        `${escapeCsv(payment.amount)},` +
+        `${escapeCsv(payment.payment_method)},` +
+        `${escapeCsv(payment.payment_status)},` +
+        `${escapeCsv(payment.transaction_id)},` +
+        `${escapeCsv(payment.payment_date)}\n`;
+    });
 
-  csv += "PAYMENTS\n";
+    // =====================================================
+    // RESPONSE
+    // =====================================================
 
-  csv +=
-    "Reference,Booking,Customer,Amount,Method,Status,Transaction ID,Payment Date\n";
+    return new NextResponse(csv, {
+      status: 200,
+      headers: {
+        "Content-Type": "text/csv; charset=utf-8",
+        "Content-Disposition": 'attachment; filename="Global-Lens-Report.csv"',
+      },
+    });
+  } catch (error) {
+    console.error("CSV report error:", error);
 
-  payments.forEach((payment) => {
-    csv +=
-      `${payment.payment_reference},` +
-      `${payment.booking_reference},` +
-      `${payment.customer_name},` +
-      `${payment.amount},` +
-      `${payment.payment_method},` +
-      `${payment.payment_status},` +
-      `${payment.transaction_id},` +
-      `${payment.payment_date}\n`;
-  });
-
-  return new NextResponse(csv, {
-    headers: {
-      "Content-Type": "text/csv",
-
-      "Content-Disposition": 'attachment; filename="Global-Lens-Report.csv"',
-    },
-  });
+    return NextResponse.json(
+      {
+        success: false,
+        message: "Failed to generate CSV report.",
+      },
+      {
+        status: 500,
+      },
+    );
+  }
 }

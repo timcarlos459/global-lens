@@ -29,7 +29,7 @@ export default function BookingManagement({ bookings }: Props) {
 
       const matchesDestination =
         !destination ||
-        booking.destination.toLowerCase().includes(destination.toLowerCase());
+        booking.tour_slug?.toLowerCase().includes(destination.toLowerCase());
 
       const matchesBookingStatus =
         !bookingStatus || booking.booking_status === bookingStatus;

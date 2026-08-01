@@ -30,7 +30,7 @@ export default function BookingTable({ bookings }: Props) {
   const [editOpen, setEditOpen] = useState(false);
   const [deleteOpen, setDeleteOpen] = useState(false);
 
-  const [loadingId, setLoadingId] = useState<number | null>(null);
+  const [loadingId, setLoadingId] = useState<string | null>(null);
 
   // ============================
   // VIEW
@@ -251,7 +251,7 @@ export default function BookingTable({ bookings }: Props) {
                       {/* Destination */}
                       <td className="px-6 py-5">
                         <span className="text-gray-700">
-                          {booking.destination}
+                          {booking.tour_slug}
                         </span>
                       </td>
 
@@ -420,47 +420,52 @@ function ActionButton({
     </button>
   );
 }
-
 /* =========================================
    PAYMENT BADGE
 ========================================= */
 
 function PaymentBadge({ status }: { status: Booking["payment_status"] }) {
-  const styles = {
+  const styles: Record<string, string> = {
     paid: "bg-green-50 text-green-700 ring-green-200",
     deposit: "bg-blue-50 text-blue-700 ring-blue-200",
     pending: "bg-amber-50 text-amber-700 ring-amber-200",
+    unpaid: "bg-red-50 text-red-700 ring-red-200",
+    partial: "bg-orange-50 text-orange-700 ring-orange-200",
+    refunded: "bg-purple-50 text-purple-700 ring-purple-200",
   };
 
   return (
     <span
-      className={`inline-flex rounded-full px-3 py-1.5 text-xs font-bold capitalize ring-1 ${styles[status]}`}
+      className={`inline-flex rounded-full px-3 py-1.5 text-xs font-bold capitalize ring-1 ${
+        styles[status] ?? "bg-gray-50 text-gray-700 ring-gray-200"
+      }`}
     >
       {status}
     </span>
   );
 }
-
 /* =========================================
    BOOKING STATUS BADGE
 ========================================= */
 
 function BookingStatusBadge({ status }: { status: Booking["booking_status"] }) {
-  const styles = {
+  const styles: Record<string, string> = {
     confirmed: "bg-green-50 text-green-700 ring-green-200",
     cancelled: "bg-red-50 text-red-700 ring-red-200",
     pending: "bg-amber-50 text-amber-700 ring-amber-200",
+    completed: "bg-blue-50 text-blue-700 ring-blue-200",
   };
 
   return (
     <span
-      className={`inline-flex rounded-full px-3 py-1.5 text-xs font-bold capitalize ring-1 ${styles[status]}`}
+      className={`inline-flex rounded-full px-3 py-1.5 text-xs font-bold capitalize ring-1 ${
+        styles[status] ?? "bg-gray-50 text-gray-700 ring-gray-200"
+      }`}
     >
       {status}
     </span>
   );
 }
-
 /* =========================================
    EMPTY STATE ICON
 ========================================= */

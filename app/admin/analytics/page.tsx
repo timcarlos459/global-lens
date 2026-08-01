@@ -7,10 +7,21 @@ import {
   MapPinned,
 } from "lucide-react";
 
-export default function AnalyticsPage() {
+import { getAnalytics } from "@/actions/adminAnalytics";
+
+export default async function AnalyticsPage() {
+  const analytics = await getAnalytics();
+
+  // Safety fallbacks
+  const bookingStatus = analytics.bookingStatus ?? [];
+  const monthlyRevenue = analytics.monthlyRevenue ?? [];
+  const destinationPerformance = analytics.destinationPerformance ?? [];
+
   return (
     <div className="space-y-8">
-      {/* Header */}
+      {/* =========================================
+          HEADER
+      ========================================= */}
 
       <div>
         <h1 className="text-4xl font-black text-[#081B29]">Analytics</h1>
@@ -21,9 +32,13 @@ export default function AnalyticsPage() {
         </p>
       </div>
 
-      {/* Main Stats */}
+      {/* =========================================
+          MAIN STATS
+      ========================================= */}
 
       <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
+        {/* REVENUE */}
+
         <div className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm">
           <div className="flex items-center justify-between">
             <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#64D98B]/10 text-[#64D98B]">
@@ -37,12 +52,16 @@ export default function AnalyticsPage() {
             Total Revenue
           </p>
 
-          <h2 className="mt-2 text-3xl font-black text-[#081B29]">$0</h2>
+          <h2 className="mt-2 text-3xl font-black text-[#081B29]">
+            ${Number(analytics.totalRevenue ?? 0).toLocaleString()}
+          </h2>
 
           <p className="mt-2 text-xs font-semibold text-gray-400">
             From completed payments
           </p>
         </div>
+
+        {/* BOOKINGS */}
 
         <div className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm">
           <div className="flex items-center justify-between">
@@ -57,12 +76,16 @@ export default function AnalyticsPage() {
             Total Bookings
           </p>
 
-          <h2 className="mt-2 text-3xl font-black text-[#081B29]">0</h2>
+          <h2 className="mt-2 text-3xl font-black text-[#081B29]">
+            {analytics.totalBookings ?? 0}
+          </h2>
 
           <p className="mt-2 text-xs font-semibold text-gray-400">
             All booking records
           </p>
         </div>
+
+        {/* CUSTOMERS */}
 
         <div className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm">
           <div className="flex items-center justify-between">
@@ -75,12 +98,16 @@ export default function AnalyticsPage() {
 
           <p className="mt-6 text-sm font-semibold text-gray-500">Customers</p>
 
-          <h2 className="mt-2 text-3xl font-black text-[#081B29]">0</h2>
+          <h2 className="mt-2 text-3xl font-black text-[#081B29]">
+            {analytics.totalCustomers ?? 0}
+          </h2>
 
           <p className="mt-2 text-xs font-semibold text-gray-400">
             Registered customers
           </p>
         </div>
+
+        {/* DESTINATIONS */}
 
         <div className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm">
           <div className="flex items-center justify-between">
@@ -95,7 +122,9 @@ export default function AnalyticsPage() {
             Destinations
           </p>
 
-          <h2 className="mt-2 text-3xl font-black text-[#081B29]">0</h2>
+          <h2 className="mt-2 text-3xl font-black text-[#081B29]">
+            {analytics.totalDestinations ?? 0}
+          </h2>
 
           <p className="mt-2 text-xs font-semibold text-gray-400">
             Available destinations
@@ -103,55 +132,124 @@ export default function AnalyticsPage() {
         </div>
       </div>
 
-      {/* Analytics Placeholder */}
+      {/* =========================================
+          BOOKING PERFORMANCE
+      ========================================= */}
 
-      <section className="rounded-3xl border border-gray-200 bg-white p-10 shadow-xl">
-        <div className="flex min-h-96 items-center justify-center">
-          <div className="max-w-lg text-center">
-            <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-[#64D98B]/10 text-[#64D98B]">
-              <BarChart3 size={30} />
-            </div>
+      <section className="rounded-3xl border border-gray-200 bg-white p-8 shadow-sm">
+        <div className="flex items-center gap-3">
+          <BarChart3 size={22} className="text-[#64D98B]" />
 
-            <h2 className="mt-6 text-2xl font-black text-[#081B29]">
-              Business Analytics
-            </h2>
+          <h2 className="text-2xl font-black text-[#081B29]">
+            Booking Performance
+          </h2>
+        </div>
 
-            <p className="mt-3 leading-7 text-gray-500">
-              Detailed analytics will be connected to your Supabase data next.
-              This section will include revenue trends, booking performance,
-              customer growth, destination performance and monthly comparisons.
-            </p>
-          </div>
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {bookingStatus.length === 0 ? (
+            <p className="text-gray-500">No booking data available.</p>
+          ) : (
+            bookingStatus.map((item) => (
+              <div key={item.status} className="rounded-2xl bg-[#F8FAFC] p-5">
+                <p className="text-sm font-semibold capitalize text-gray-500">
+                  {item.status}
+                </p>
+
+                <p className="mt-2 text-3xl font-black text-[#081B29]">
+                  {item.count}
+                </p>
+              </div>
+            ))
+          )}
         </div>
       </section>
 
-      {/* Coming Analytics */}
+      {/* =========================================
+          MONTHLY REVENUE
+      ========================================= */}
 
-      <div className="grid gap-6 lg:grid-cols-3">
-        <div className="rounded-3xl border border-gray-200 bg-white p-6">
-          <h3 className="font-black text-[#081B29]">Revenue Trends</h3>
+      <section className="rounded-3xl border border-gray-200 bg-white p-8 shadow-sm">
+        <h2 className="text-2xl font-black text-[#081B29]">Monthly Revenue</h2>
 
-          <p className="mt-2 text-sm leading-6 text-gray-500">
-            Monthly and yearly revenue performance.
-          </p>
+        <p className="mt-2 text-gray-500">
+          Revenue generated from completed payments.
+        </p>
+
+        <div className="mt-8 space-y-4">
+          {monthlyRevenue.length === 0 ? (
+            <div className="rounded-2xl bg-gray-50 p-8 text-center text-gray-500">
+              No payment data available yet.
+            </div>
+          ) : (
+            monthlyRevenue.map((item) => (
+              <div
+                key={item.month}
+                className="flex items-center justify-between rounded-2xl bg-[#F8FAFC] p-5"
+              >
+                <span className="font-semibold text-gray-600">
+                  {item.month}
+                </span>
+
+                <span className="font-black text-[#081B29]">
+                  ${Number(item.revenue ?? 0).toLocaleString()}
+                </span>
+              </div>
+            ))
+          )}
         </div>
+      </section>
 
-        <div className="rounded-3xl border border-gray-200 bg-white p-6">
-          <h3 className="font-black text-[#081B29]">Booking Analytics</h3>
+      {/* =========================================
+          DESTINATION PERFORMANCE
+      ========================================= */}
 
-          <p className="mt-2 text-sm leading-6 text-gray-500">
-            Booking volume, status and conversion trends.
-          </p>
+      <section className="rounded-3xl border border-gray-200 bg-white p-8 shadow-sm">
+        <h2 className="text-2xl font-black text-[#081B29]">
+          Destination Performance
+        </h2>
+
+        <p className="mt-2 text-gray-500">
+          See which destinations are generating the most bookings.
+        </p>
+
+        <div className="mt-8 overflow-x-auto">
+          <table className="w-full min-w-150">
+            <thead>
+              <tr className="border-b text-left text-sm text-gray-500">
+                <th className="pb-4">Destination</th>
+
+                <th className="pb-4">Bookings</th>
+
+                <th className="pb-4">Revenue</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              {destinationPerformance.length === 0 ? (
+                <tr>
+                  <td colSpan={3} className="py-8 text-center text-gray-500">
+                    No destination booking data available.
+                  </td>
+                </tr>
+              ) : (
+                destinationPerformance.map((item) => (
+                  <tr key={item.destination} className="border-b last:border-0">
+                    <td className="py-5 font-semibold text-[#081B29]">
+                      {item.destination}
+                    </td>
+
+                    <td className="py-5 text-gray-600">{item.bookings}</td>
+
+                    <td className="py-5 font-bold text-[#081B29]">
+                      ${Number(item.revenue ?? 0).toLocaleString()}
+                    </td>
+                  </tr>
+                ))
+              )}
+            </tbody>
+          </table>
         </div>
-
-        <div className="rounded-3xl border border-gray-200 bg-white p-6">
-          <h3 className="font-black text-[#081B29]">Customer Analytics</h3>
-
-          <p className="mt-2 text-sm leading-6 text-gray-500">
-            Customer growth and booking activity.
-          </p>
-        </div>
-      </div>
+      </section>
     </div>
   );
 }

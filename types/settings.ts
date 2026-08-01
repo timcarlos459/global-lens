@@ -1,28 +1,48 @@
-export interface CompanySettings {
-  id?: number;
+export interface Settings {
+  id: number;
 
   company_name: string;
-  company_email: string;
-  company_phone: string;
+  tagline: string;
+  ceo: string;
+  founded_year: string;
+  description: string;
 
-  company_address: string;
+  address: string;
+  city: string;
+  country: string;
+
+  phone: string;
+  phone2: string;
+  whatsapp: string;
+  email: string;
   website: string;
 
   facebook: string;
   instagram: string;
+  tiktok: string;
   linkedin: string;
   youtube: string;
-  tiktok: string;
-  twitter: string;
+  x: string;
 
   currency: string;
-  timezone: string;
 
-  booking_email_notifications: boolean;
-  booking_sms_notifications: boolean;
+  booking_deposit: number;
+  min_booking_days: number;
+  max_guests: number;
 
-  maintenance_mode: boolean;
+  instant_booking: boolean;
+  manual_approval: boolean;
 
-  created_at?: string;
-  updated_at?: string;
+  logo_url: string;
+  favicon_url: string;
+
+  meta_title: string;
+  meta_description: string;
+  keywords: string;
+
+  google_analytics: string;
+  facebook_pixel: string;
+
+  created_at: string;
+  updated_at: string;
 }

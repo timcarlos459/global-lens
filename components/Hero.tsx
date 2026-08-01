@@ -1,27 +1,93 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import HeroCards from "./HeroCards";
 import HeroStats from "./HeroStats";
 
 export default function Hero() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const [showVideo, setShowVideo] = useState(false);
+
+  useEffect(() => {
+    let imageTimer: NodeJS.Timeout;
+
+    const playVideo = async () => {
+      if (!videoRef.current) return;
+
+      videoRef.current.currentTime = 0;
+
+      try {
+        await videoRef.current.play();
+      } catch {
+        // Browser paused or blocked autoplay
+      }
+    };
+
+    const startCycle = () => {
+      // Show image first
+      setShowVideo(false);
+
+      imageTimer = setTimeout(async () => {
+        setShowVideo(true);
+        await playVideo();
+      }, 5000); // Image visible for 5 seconds
+    };
+
+    startCycle();
+
+    const video = videoRef.current;
+
+    const handleEnded = () => {
+      startCycle();
+    };
+
+    video?.addEventListener("ended", handleEnded);
+
+    return () => {
+      clearTimeout(imageTimer);
+      video?.removeEventListener("ended", handleEnded);
+    };
+  }, []);
+
   return (
-    <section
-      className="relative min-h-[85vh] overflow-hidden bg-cover bg-center"
-      style={{
-        backgroundImage: "url('/images/hero/hero1.jpg')",
-      }}
-    >
-      {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-linear-to-r from-[#081B29]/90 via-[#081B29]/60 to-[#081B29]/85" />
+    <section className="relative min-h-[85vh] overflow-hidden">
+      {/* IMAGE BACKGROUND */}
 
-      {/* Decorative Glow */}
-      <div className="absolute -left-32 top-40 h-72 w-72 rounded-full bg-[#64D98B]/20 blur-3xl" />
-      <div className="absolute right-0 bottom-0 h-72 w-72 rounded-full bg-[#64D98B]/10 blur-3xl" />
+      <div
+        className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1500 ${
+          showVideo ? "opacity-0" : "opacity-100"
+        }`}
+        style={{
+          backgroundImage: "url('/images/hero/hero1.jpg')",
+        }}
+      />
 
-      {/* Content */}
-      <div className="relative z-20 mx-auto grid min-h-[85vh] max-w-7xl items-center gap-12 px-6 pt-28 pb-38 lg:grid-cols-2">
+      {/* VIDEO BACKGROUND */}
+
+      <video
+        ref={videoRef}
+        muted
+        playsInline
+        preload="metadata"
+        disablePictureInPicture
+        className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1500 ${
+          showVideo ? "opacity-100" : "opacity-0"
+        }`}
+      >
+        <source src="/videos/hero.mp4" type="video/mp4" />
+      </video>
+
+      {/* DARK OVERLAY */}
+
+      <div className="absolute inset-0 bg-linear-to-r from-black/70 via-black/45 to-black/65" />
+
+      {/* CONTENT */}
+
+      <div className="relative z-20 mx-auto grid min-h-[85vh] max-w-7xl items-center gap-12 px-6 pb-38 pt-28 lg:grid-cols-2">
         {/* LEFT */}
+
         <div>
           <span className="inline-flex rounded-full border border-white/20 bg-white/10 px-5 py-2 text-xs font-semibold uppercase tracking-[3px] text-white backdrop-blur-xl">
             Luxury African Experiences
@@ -47,7 +113,6 @@ export default function Hero() {
             experiences curated by Global Lens Tours.
           </p>
 
-          {/* Buttons */}
           <div className="mt-8 flex flex-wrap gap-4">
             <Link
               href="/tours"
@@ -66,10 +131,12 @@ export default function Hero() {
         </div>
 
         {/* RIGHT */}
+
         <HeroCards />
       </div>
 
-      {/* Bottom Statistics */}
+      {/* STATS */}
+
       <HeroStats />
     </section>
   );
